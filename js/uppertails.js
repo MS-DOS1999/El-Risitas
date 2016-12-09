@@ -50,8 +50,8 @@ document.body.style.cursor = 'none';
 
 		function souris(e){
 					if (e.x != undefined && e.y != undefined){
-						mouseX = e.x;
-						mouseY = e.y;
+						mouseX = e.x - 15;
+						mouseY = e.y - 15;
 					} else {
 					// Firefox patch
 					mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
