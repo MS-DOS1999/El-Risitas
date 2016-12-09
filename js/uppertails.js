@@ -198,5 +198,12 @@ window.onload = function() {
 			context.drawImage();
 			context.drawImage();
 		}
+		
+		function collisions(A,B) {
+			if (A.y+A.h < B.y || A.y > B.y+B.h || A.x > B.x+B.w || A.x+A.w < B.x)
+				return false;
+				return true;
+			
+		}
 
 }
