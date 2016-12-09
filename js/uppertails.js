@@ -54,8 +54,8 @@ document.body.style.cursor = 'none';
 						mouseY = e.y - 15;
 					} else {
 					// Firefox patch
-					mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-					mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+					mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - 15;
+					mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop - 15;
 					}
 				}
 
