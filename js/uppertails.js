@@ -40,4 +40,15 @@ window.onload = function() {
 			canvas.width = W;
 			canvas.height = H;
     }
+    
+    function main() {
+	    render();
+    }
+}
+
+function render() {
+	context.drawImage();
+	context.drawImage();
+	context.drawImage();
+	context.drawImage();
 }
