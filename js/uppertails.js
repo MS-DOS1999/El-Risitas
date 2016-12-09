@@ -1,10 +1,10 @@
 // Déclaration des variables
 var joueur,
-var bloc1, var bloc2, var bloc3, var bloc4, var bloc5,
-var bloc6, var bloc7, var bloc8, var bloc9, var bloc10,
-var bloc11, var bloc12, var bloc13, var bloc14, var bloc15,
-var bloc16, var bloc17, var bloc18, var bloc19, var bloc20,
-var lifeBar = new Image();
+bloc1, bloc2, bloc3, bloc4, bloc5,
+bloc6, bloc7, bloc8, bloc9, bloc10,
+bloc11, bloc12, bloc13, bloc14, bloc15,
+bloc16, bloc17, bloc18, bloc19, bloc20,
+lifeBar = new Image();
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
@@ -14,11 +14,9 @@ window.onload = function() {
 
 	// Déclaration des variables objets
 	var p1 = {};
-	var b1, var b2, var b3, var b4, var b5,
-	var b6, var b7, var b8, var b9, var b10,
-	var b11, var b12, var b13, var b14, var b15,
-	var b16, var b17,	var b18, var b19, var b20,
-	var lB = {};
+	b1, b2, b3, b4, b5, b6, b7, b8, b9, b10,
+	b11, b12, b13, b14, b15, b16, b17,	b18, b19, b20,
+	lB = {};
 
   var W = 512;
 	var H = 256;
