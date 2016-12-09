@@ -31,11 +31,12 @@ window.onload = function() {
     function main() {
 	    render();
     }
-}
 
-function render() {
-	context.drawImage();
-	context.drawImage();
-	context.drawImage();
-	context.drawImage();
+		function render() {
+			context.drawImage();
+			context.drawImage();
+			context.drawImage();
+			context.drawImage();
+		}
+		
 }
