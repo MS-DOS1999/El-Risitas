@@ -3,11 +3,14 @@
 
 
 // Déclaration des variables
-var joueur, background,
-bloc1, bloc2, bloc3, bloc4, bloc5,
-bloc6, bloc7, bloc8, bloc9, bloc10,
-bloc11, bloc12, bloc13, bloc14, bloc15,
-bloc16, bloc17, bloc18, bloc19, bloc20,
+var joueur = new Image(), background = new Image(),
+bloc1 = new Image(), bloc2 = new Image(), bloc3 = new Image(),
+bloc4 = new Image(), bloc5 = new Image(), bloc6 = new Image(),
+bloc7 = new Image(), bloc8 = new Image(), bloc9 = new Image(),
+bloc10 = new Image(), bloc11 = new Image(), bloc12 = new Image(),
+bloc13 = new Image(), bloc14 = new Image(), bloc15 = new Image(),
+bloc16 = new Image(), bloc17 = new Image(), bloc18 = new Image(),
+bloc19 = new Image(), bloc20 = new Image(),
 lifeBar = new Image();
 
 
@@ -24,8 +27,8 @@ window.onload = function() {
 
 	// Déclaration des variables objets
 
-	var b1, b2, b3, b4, b5, b6, b7, b8, b9, b10,
-	b11, b12, b13, b14, b15, b16, b17,	b18, b19, b20,
+	var b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
+	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {},	b18 = {}, b19 = {}, b20 = {},
 	lB = {};
 
   var W = 512;
@@ -221,9 +224,10 @@ window.onload = function() {
 
 		function render() {
 			context.drawImage(background, 0, 0);
-			context.drawImage(heart, mouseX, mouseY);
+			context.drawImage(joueur, mouseX, mouseY);
 			context.drawImage();
 			context.drawImage();
+		}
 
 		function collisions(A,B) {
 			if (A.y+A.h < B.y || A.y > B.y+B.h || A.x > B.x+B.w || A.x+A.w < B.x)
