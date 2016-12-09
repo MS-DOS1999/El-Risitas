@@ -39,7 +39,7 @@ window.onload = function() {
 			mouseX = p1.x;
       setInterval(main, 15);
 			canvas.addEventListener("mousemove", souris, false);
-
+document.body.style.cursor = 'none';
 
     }
 
