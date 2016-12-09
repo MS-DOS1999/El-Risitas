@@ -1,15 +1,12 @@
 // Début code Jamil pour le mouvement de la souris
-cursor("NONE"); // remove mouse cursor
 
-// décla des variables:
-
-var heart = new Image();
+// declare image variable
+var player = new Image();
 var background = new Image();
-var x = 0;
-var y = 0;
 
-//linker les images aux var
-heart.src = "img/heart.png";
+
+//link images to var
+player.src = "img/heart.png";
 background.src = "img/background.png";
 
 
@@ -26,29 +23,34 @@ window.onload = function() {
 
 
 
-  let draw = function() {
-    x = lerp(mouseX, x, 0);  // means Linear Interpolation between two points
-    y = lerp(mouseY, y, 0);
-    background(0, 0, 0); // black color background
-    image(heart, x - 50, y - 50, 100, 100);
-};
+
 
 
     init();
 
     function init() {
+
 			canvas.width = W;
 			canvas.height = H;
+
+			setInterval(main, 15);
+
+			//
+			p1.w = player.width;
+			p1.h = player.height;
+			/*p1.x = (W - p1.h) / 2;
+			p1.y = (H - p1.h) / 2;*/
     }
-    
+
     function main() {
+
 	    render();
     }
-}
+		function render() {
+			context.drawImage(background, 0, 0);
+			context.drawImage(player, 256, 128);
+			context.drawImage();
+			context.drawImage();
+		}
 
-function render() {
-	context.drawImage();
-	context.drawImage();
-	context.drawImage();
-	context.drawImage();
 }
