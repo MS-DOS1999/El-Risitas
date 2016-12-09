@@ -40,6 +40,7 @@ window.onload = function() {
       setInterval(main, 15);
 			canvas.addEventListener("mousemove", souris, false);
 
+
     }
 
     function main() {
