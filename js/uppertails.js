@@ -307,7 +307,54 @@ function main() {
 				b12.h = 0;
 				
 		}
-
+		if (collisions(b13,p1)) {
+				lifeCounter -= 1;
+				b13.w = 0;
+				b13.h = 0;
+				
+		}
+		if (collisions(b14,p1)) {
+				lifeCounter -= 1;
+				b14.w = 0;
+				b14.h = 0;
+				
+		}
+		if (collisions(b15,p1)) {
+				lifeCounter -= 1;
+				b15.w = 0;
+				b15.h = 0;
+				
+		}
+		if (collisions(b16,p1)) {
+				lifeCounter -= 1;
+				b16.w = 0;
+				b16.h = 0;
+				
+		}
+		if (collisions(b17,p1)) {
+				lifeCounter -= 1;
+				b17.w = 0;
+				b17.h = 0;
+				
+		}
+		if (collisions(b18,p1)) {
+				lifeCounter -= 1;
+				b18.w = 0;
+				b18.h = 0;
+				
+		}
+		if (collisions(b19,p1)) {
+				lifeCounter -= 1;
+				b19.w = 0;
+				b19.h = 0;
+				
+		}
+		if (collisions(b20,p1)) {
+				lifeCounter -= 1;
+				b20.w = 0;
+				b20.h = 0;
+				
+		}
 				
 	    render();
     }
