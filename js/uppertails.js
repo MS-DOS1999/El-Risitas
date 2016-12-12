@@ -283,6 +283,30 @@ function main() {
 				b8.h = 0;
 				
 		}
+		if (collisions(b9,p1)) {
+				lifeCounter -= 1;
+				b9.w = 0;
+				b9.h = 0;
+				
+		}
+		if (collisions(b10,p1)) {
+				lifeCounter -= 1;
+				b10.w = 0;
+				b10.h = 0;
+				
+		}
+		if (collisions(b11,p1)) {
+				lifeCounter -= 1;
+				b11.w = 0;
+				b11.h = 0;
+				
+		}
+		if (collisions(b12,p1)) {
+				lifeCounter -= 1;
+				b12.w = 0;
+				b12.h = 0;
+				
+		}
 
 				
 	    render();
