@@ -20,7 +20,26 @@ var lifeCounter = 3;
 joueur.src = "img/heart.png";
 background.src = "img/background.png";
 lifeBar.src = "img/jauge_remplie.png";
-
+bloc3.src = "img/rayonH.png";
+bloc10.src = "img/rayonH.png";
+bloc14.src = "img/rayonH.png";
+bloc4.src ="img/rayon.png";
+bloc11.src = "img/rayon.png";
+bloc12.src = "img/rayon.png";
+bloc19.src = "img/skull.png";
+bloc20.src = "img/skull.png";
+bloc1.src = "img/arrow.png";
+bloc2.src = "img/arrow.png";
+bloc5.src = "img/arrow.png";
+bloc6.src = "img/arrow.png";
+bloc7.src = "img/arrow.png";
+bloc8.src = "img/arrow.png";
+bloc9.src = "img/arrow.png";
+bloc13.src = "img/arrow.png";
+bloc15.src = "img/arrow.png";
+bloc16.src = "img/arrow.png";
+bloc17.src = "img/arrow.png";
+bloc18.src = "img/arrow.png";
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
@@ -209,138 +228,138 @@ window.onload = function() {
 
     }
     function main() {
-		
+
 		if(lifeCounter === 2){
 			lifeBar.src = "img/jauge_demi1.png";
 		}
 		if(lifeCounter === 1){
 			lifeBar.src = "img/jauge_demi2.png";
 		}
-		
-		
-		
-		
+
+
+
+
 		if (collisions(b1,p1)) {
 				lifeCounter -= 1;
 				b1.w = 0;
 				b1.h = 0;
-				
+
 		}
 		if (collisions(b2,p1)) {
 				lifeCounter -= 1;
 				b2.w = 0;
 				b2.h = 0;
-				
+
 		}
 		if (collisions(b3,p1)) {
 				lifeCounter -= 1;
 				b3.w = 0;
 				b3.h = 0;
-				
+
 		}
 		if (collisions(b4,p1)) {
 				lifeCounter -= 1;
 				b4.w = 0;
 				b4.h = 0;
-				
+
 		}
 		if (collisions(b5,p1)) {
 				lifeCounter -= 1;
 				b5.w = 0;
 				b5.h = 0;
-				
+
 		}
 		if (collisions(b6,p1)) {
 				lifeCounter -= 1;
 				b6.w = 0;
 				b6.h = 0;
-				
+
 		}
 		if (collisions(b7,p1)) {
 				lifeCounter -= 1;
 				b7.w = 0;
 				b7.h = 0;
-				
+
 		}
 		if (collisions(b8,p1)) {
 				lifeCounter -= 1;
 				b8.w = 0;
 				b8.h = 0;
-				
+
 		}
 		if (collisions(b9,p1)) {
 				lifeCounter -= 1;
 				b9.w = 0;
 				b9.h = 0;
-				
+
 		}
 		if (collisions(b10,p1)) {
 				lifeCounter -= 1;
 				b10.w = 0;
 				b10.h = 0;
-				
+
 		}
 		if (collisions(b11,p1)) {
 				lifeCounter -= 1;
 				b11.w = 0;
 				b11.h = 0;
-				
+
 		}
 		if (collisions(b12,p1)) {
 				lifeCounter -= 1;
 				b12.w = 0;
 				b12.h = 0;
-				
+
 		}
 		if (collisions(b13,p1)) {
 				lifeCounter -= 1;
 				b13.w = 0;
 				b13.h = 0;
-				
+
 		}
 		if (collisions(b14,p1)) {
 				lifeCounter -= 1;
 				b14.w = 0;
 				b14.h = 0;
-				
+
 		}
 		if (collisions(b15,p1)) {
 				lifeCounter -= 1;
 				b15.w = 0;
 				b15.h = 0;
-				
+
 		}
 		if (collisions(b16,p1)) {
 				lifeCounter -= 1;
 				b16.w = 0;
 				b16.h = 0;
-				
+
 		}
 		if (collisions(b17,p1)) {
 				lifeCounter -= 1;
 				b17.w = 0;
 				b17.h = 0;
-				
+
 		}
 		if (collisions(b18,p1)) {
 				lifeCounter -= 1;
 				b18.w = 0;
 				b18.h = 0;
-				
+
 		}
 		if (collisions(b19,p1)) {
 				lifeCounter -= 1;
 				b19.w = 0;
 				b19.h = 0;
-				
+
 		}
 		if (collisions(b20,p1)) {
 				lifeCounter -= 1;
 				b20.w = 0;
 				b20.h = 0;
-				
+
 		}
-				
+
 	    render();
     }
 
@@ -359,7 +378,7 @@ window.onload = function() {
 			context.drawImage(background, 0, 0);
 			context.drawImage(joueur, mouseX, mouseY);
 			context.drawImage(lifeBar, lB.x, lB.y);
-			
+
 		}
 
 		function collisions(A,B) {
