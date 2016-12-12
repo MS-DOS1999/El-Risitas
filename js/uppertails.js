@@ -13,6 +13,8 @@ bloc16 = new Image(), bloc17 = new Image(), bloc18 = new Image(),
 bloc19 = new Image(), bloc20 = new Image(),
 lifeBar = new Image();
 
+var lifeCounter = 3;
+
 
 //link images to var
 joueur.src = "img/heart.png";
@@ -28,7 +30,7 @@ window.onload = function() {
 	// Déclaration des variables objets
 
 	var b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
-	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {},	b18 = {}, b19 = {}, b20 = {},
+	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {}, b18 = {}, b19 = {}, b20 = {},
 	lB = {};
 
   var W = 512;
@@ -205,9 +207,84 @@ window.onload = function() {
 			document.body.style.cursor = 'none';
 
     }
+function main() {
+		if (collisions(b1,p1)) {
+				lifeCounter -= 1;
+				
+				}
+	    render();
+    }
 
+		function souris(e){
+					if (e.x != undefined && e.y != undefined){
+						mouseX = e.x - 15;
+						mouseY = e.y - 15;
+					} else {
+					// Firefox patch
+					mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - 15;
+					mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop - 15;
+					}
+				}
+
+		function render() {
+			context.drawImage(background, 0, 0);
+			context.drawImage(joueur, mouseX, mouseY);
+			context.drawImage();
+			context.drawImage();
+		}
+
+		function collision
     function main() {
+		if (collisions(b1,p1)) {
+				lifeCounter -= 1;
+				b1.w = 0;
+				b1.h = 0;
+				
+		}
+		if (collisions(b2,p1)) {
+				lifeCounter -= 1;
+				b2.w = 0;
+				b2.h = 0;
+				
+		}
+		if (collisions(b3,p1)) {
+				lifeCounter -= 1;
+				b3.w = 0;
+				b3.h = 0;
+				
+		}
+		if (collisions(b4,p1)) {
+				lifeCounter -= 1;
+				b4.w = 0;
+				b4.h = 0;
+				
+		}
+		if (collisions(b5,p1)) {
+				lifeCounter -= 1;
+				b5.w = 0;
+				b5.h = 0;
+				
+		}
+		if (collisions(b6,p1)) {
+				lifeCounter -= 1;
+				b6.w = 0;
+				b6.h = 0;
+				
+		}
+		if (collisions(b7,p1)) {
+				lifeCounter -= 1;
+				b7.w = 0;
+				b7.h = 0;
+				
+		}
+		if (collisions(b8,p1)) {
+				lifeCounter -= 1;
+				b8.w = 0;
+				b8.h = 0;
+				
+		}
 
+				
 	    render();
     }
 
