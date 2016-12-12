@@ -236,4 +236,4 @@ window.onload = function() {
 
 		}
 
-}
+		// Reset variables
