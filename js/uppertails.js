@@ -349,7 +349,7 @@ window.onload = function() {
 			context.drawImage(background, 0, 0);
 			context.drawImage(joueur, mouseX, mouseY);
 			context.drawImage(gameover, 0, 0);
-			context.drawImage();
+
 		}
 
 		function collisions(A,B) {
@@ -366,8 +366,8 @@ window.onload = function() {
  			canvas.width = W;
  			canvas.height = H;
 
-     let lifeBar = 0;
-     let joueur = 0;
+     lifeBar.src = 0;
+     joueur.src = 0;
 
  			p1.h = joueur.height;
  			p1.w = joueur.width;
