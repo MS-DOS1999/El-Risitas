@@ -19,6 +19,7 @@ var lifeCounter = 3;
 //link images to var
 joueur.src = "img/heart.png";
 background.src = "img/background.png";
+lifeBar.src = "img/jauge_remplie.png";
 
 
 window.onload = function() {
@@ -207,34 +208,18 @@ window.onload = function() {
 			document.body.style.cursor = 'none';
 
     }
-function main() {
-		if (collisions(b1,p1)) {
-				lifeCounter -= 1;
-				
-				}
-	    render();
-    }
-
-		function souris(e){
-					if (e.x != undefined && e.y != undefined){
-						mouseX = e.x - 15;
-						mouseY = e.y - 15;
-					} else {
-					// Firefox patch
-					mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - 15;
-					mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop - 15;
-					}
-				}
-
-		function render() {
-			context.drawImage(background, 0, 0);
-			context.drawImage(joueur, mouseX, mouseY);
-			context.drawImage();
-			context.drawImage();
-		}
-
-		function collision
     function main() {
+		
+		if(lifeCounter === 2){
+			lifeBar.src = "img/jauge_demi1.png";
+		}
+		if(lifeCounter === 1){
+			lifeBar.src = "img/jauge_demi2.png";
+		}
+		
+		
+		
+		
 		if (collisions(b1,p1)) {
 				lifeCounter -= 1;
 				b1.w = 0;
@@ -373,8 +358,8 @@ function main() {
 		function render() {
 			context.drawImage(background, 0, 0);
 			context.drawImage(joueur, mouseX, mouseY);
-			context.drawImage();
-			context.drawImage();
+			context.drawImage(lifeBar, lB.x, lB.y);
+			
 		}
 
 		function collisions(A,B) {
