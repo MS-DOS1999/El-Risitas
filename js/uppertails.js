@@ -1,6 +1,27 @@
+// FREE VAR
+var curve = 0;
+var counterP1 = 0;
 
+//VAR TIMER EVENT
+var b1EndP1 = false, b2EndP1 = false, b3EndP1 = true, b4EndP1 = true, b5EndP1 = true,
+b6EndP1 = true, b7EndP1 = true, b8EndP1 = true, b9EndP1 = true, b10EndP1 = true,
+b11EndP1 = true, b12EndP1 = true, b13EndP1 = true, b14EndP1 = true, b15EndP1 = true,
+b16EndP1 = true, b17EndP1 = true, b18EndP1 = true, b19EndP1 = true, b20EndP1 = true;
 
+var b1EndP2 = true, b2EndP2 = true, b3EndP2 = true, b4EndP2 = true, b5EndP2 = true,
+b6EndP2 = true, b7EndP2 = true, b8EndP2 = true, b9EndP2 = true, b10EndP2 = true,
+b11EndP2 = true, b12EndP2 = true, b13EndP2 = true, b14EndP2 = true, b15EndP2 = true,
+b16EndP2 = true, b17EndP2 = true, b18EndP2 = true, b19EndP2 = true, b20EndP2 = true;
 
+var b1EndP3 = true, b2EndP3 = true, b3EndP3 = true, b4EndP3 = true, b5EndP3 = true,
+b6EndP3 = true, b7EndP3 = true, b8EndP3 = true, b9EndP3 = true, b10EndP3 = true,
+b11EndP3 = true, b12EndP3 = true, b13EndP3 = true, b14EndP3 = true, b15EndP3 = true,
+b16EndP3 = true, b17EndP3 = true, b18EndP3 = true, b19EndP3 = true, b20EndP3 = true;
+
+var b1EndP4 = true, b2EndP4 = true, b3EndP4 = true, b4EndP4 = true, b5EndP4 = true,
+b6EndP4 = true, b7EndP4 = true, b8EndP4 = true, b9EndP4 = true, b10EndP4 = true,
+b11EndP4 = true, b12EndP4 = true, b13EndP4 = true, b14EndP4 = true, b15EndP4 = true,
+b16EndP4 = true, b17EndP4 = true, b18EndP4 = true, b19EndP4 = true, b20EndP4 = true;
 
 // Déclaration des variables
 var joueur = new Image(), background = new Image(),
@@ -20,26 +41,26 @@ var lifeCounter = 3;
 joueur.src = "img/heart.png";
 background.src = "img/background.png";
 lifeBar.src = "img/jauge_remplie.png";
-bloc3.src = "img/rayonH.png";
-bloc10.src = "img/rayonH.png";
-bloc14.src = "img/rayonH.png";
-bloc4.src ="img/rayon.png";
-bloc11.src = "img/rayon.png";
-bloc12.src = "img/rayon.png";
-bloc19.src = "img/skull.png";
-bloc20.src = "img/skull.png";
 bloc1.src = "img/arrow.png";
 bloc2.src = "img/arrow.png";
+bloc3.src = "img/rayonH.png";
+bloc4.src ="img/rayon.png";
 bloc5.src = "img/arrow.png";
 bloc6.src = "img/arrow.png";
 bloc7.src = "img/arrow.png";
 bloc8.src = "img/arrow.png";
-bloc9.src = "img/arrow.png";
+bloc9.src = "img/rayonH.png";
+bloc10.src = "img/rayonH.png";
+bloc11.src = "img/rayon.png";
+bloc12.src = "img/rayon.png";
 bloc13.src = "img/arrow.png";
+bloc14.src = "img/arrow.png";
 bloc15.src = "img/arrow.png";
 bloc16.src = "img/arrow.png";
 bloc17.src = "img/arrow.png";
 bloc18.src = "img/arrow.png";
+bloc19.src = "img/skull.png";
+bloc20.src = "img/skull.png";
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
@@ -75,142 +96,102 @@ window.onload = function() {
 			b1.h = bloc1.height;
 			b1.w = bloc1.width;
 			b1.y = 0;
-			b1.x = 0;
-			b1.vX = 0;
-			b1.vY = 0;
+			b1.x = -bloc1.width;
 
 			b2.h = bloc2.height;
 			b2.w = bloc2.width;
 			b2.y = 0;
 			b2.x = 512;
-			b2.vX = 0;
-			b2.vY = 0;
 
 			b3.h = bloc3.height;
 			b3.w = bloc3.width;
 			b3.y = 256 / 3;
-			b3.x = 0;
-			b3.vX = 0;
-			b3.vY = 0;
+			b3.x = -bloc3.width;
 
 			b4.h = bloc4.height;
 			b4.w = bloc4.width;
 			b4.y = 256;
 			b4.x = 512 / 3;
-			b4.vX = 0;
-			b4.vY = 0;
 
 			b5.h = bloc5.height;
 			b5.w = bloc5.width;
 			b5.y = 256;
 			b5.x = 104;
-			b5.vX = 0;
-			b5.vY = 0;
 
 			b6.h = bloc6.height;
 			b6.w = bloc6.width;
 			b6.y = 256;
 			b6.x = 256;
-			b6.vX = 0;
-			b6.vY = 0;
 
 			b7.h = bloc7.height;
 			b7.w = bloc7.width;
 			b7.y = 256;
 			b7.x = 408;
-			b7.vX = 0;
-			b7.vY = 0;
 
 			b8.h = bloc8.height;
 			b8.w = bloc8.width;
 			b8.y = 256;
 			b8.x = -(bloc8.width);
-			b8.vX = 0;
-			b8.vY = 0;
 
 			b9.h = bloc9.height;
 			b9.w = bloc9.width;
 			b9.y = 0;
 			b9.x = -(bloc9.width);
-			b9.vX = 0;
-			b9.vY = 0;
 
 			b10.h = bloc10.height;
 			b10.w = bloc10.width;
 			b10.y = (256 / 3) * 2;
 			b10.x = (bloc10.width);
-			b10.vX = 0;
-			b10.vY = 0;
 
 			b11.h = bloc11.height;
 			b11.w = bloc11.width;
 			b11.y = -(bloc11.height);
 			b11.x = (512 / 3) * 2;
-			b11.vX = 0;
-			b11.vY = 0;
 
 			b12.h = bloc12.height;
 			b12.w = bloc12.width;
 			b12.y = -(bloc12.height);
 			b12.x = 0;
-			b12.vX = 0;
-			b12.vY = 0;
 
 			b13.h = bloc13.height;
 			b13.w = bloc13.width;
 			b13.y = 256 / 3;
 			b13.x = -(bloc13.width);
-			b13.vX = 0;
-			b13.vY = 0;
 
 			b14.h = bloc14.height;
 			b14.w = bloc14.width;
 			b14.y = (256 / 3) * 2;
 			b14.x = -(bloc14.width);
-			b14.vX = 0;
-			b14.vY = 0;
 
 			b15.h = bloc15.height;
 			b15.w = bloc15.width;
 			b15.y = -(bloc15.height);
 			b15.x = 51;
-			b15.vX = 0;
-			b15.vY = 0;
 
 			b16.h = bloc16.height;
 			b16.w = bloc16.width;
 			b16.y = -(bloc16.height);
 			b16.x = 461;
-			b16.vX = 0;
-			b16.vY = 0;
 
 			b17.h = bloc17.height;
 			b17.w = bloc17.width;
 			b17.y = -(bloc17.height);
 			b17.x = 205;
-			b17.vX = 0;
-			b17.vY = 0;
 
 			b18.h = bloc18.height;
 			b18.w = bloc18.width;
 			b18.y = -(bloc17.height);
 			b18.x = 411;
-			b18.vX = 0;
-			b18.vY = 0;
 
 			b19.h = bloc19.height;
 			b19.w = bloc19.width;
 			b19.y = 200;
 			b19.x = -(bloc19.width);
-			b19.vX = 0;
-			b19.vY = b19.vY + Math.sin(b19.vY);
 
 			b20.h = bloc20.height;
 			b20.w = bloc20.width;
 			b20.y = 256;
 			b20.x = 512;
-			b20.vX = b20.vX + Math.cos(b20.vX);
-			b20.vY = b20.vY + Math.sin(b20.vY);
 			// Je déterminerai les positions et les placements
 			// initiaux de chaque bloc au moment où je trouverai
 			// leur image ou quand je ferais leurs dessins en pixelArt
@@ -236,7 +217,208 @@ window.onload = function() {
 			lifeBar.src = "img/jauge_demi2.png";
 		}
 
+		if(!b1EndP1 && !b2EndP1){
+			b1.x += 2;
+			b1.y += 1;
+			b2.x -= 2;
+			b2.y += 1;
+			if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
+				b1.x = 0;
+				b1.y = -b1.width;
+				b2.x = 512;
+				b2.y = 0;
+				b1EndP1 = true;
+				b2EndP1 = true;
+				b3EndP1 = false;
+			}
+		}
 
+		if(!b3EndP1){
+			b3.x += 10;
+			if(b3.x > 530){
+				b3.x = -bloc3.width;
+				b3EndP1 = true;
+				b12EndP1 = false;
+			}
+		}
+
+		if(!b12EndP1){
+			b12.y += 5;
+			if(b12.y > 270){
+				b12.y = -bloc12.height;
+				b12EndP1 = true;
+				b11EndP1 = false;
+			}
+		}
+
+		if(!b11EndP1){
+			b11.y += 5;
+			if(b11.y > 270){
+				b11.y = -bloc11.height;
+				b11EndP1 = true;
+				b4EndP1 = false;
+			}
+		}
+
+		if(!b4EndP1){
+			b4.y -= 5;
+			if(b4.y < -30){
+				b4.y = 256;
+				b4EndP1 = true;
+				b20EndP1 = false;
+			}
+		}
+
+		if(!b20EndP1){
+			curve += 0.5;
+			if(curve > 180) curve = 0;
+			b20.x -= 2;
+			b20.y -= 1 + (10 * Math.sin(curve));
+			if(b20.y < 0 || b20.x < 0){
+				b20.y = 256;
+				b20.x = 512;
+				b20EndP1 = true;
+				b15EndP1 = false;
+				b18EndP1 = false;
+			}
+		}
+
+		if(!b15EndP1 && !b18EndP1){
+			b15.y += 2;
+			b18.y += 2;
+			if(b15.y > 270 || b18.y > 270){
+				b15.y = -bloc15.height;
+				b18.y = -bloc18.height;
+				b15EndP1 = true;
+				b18EndP1 = true;
+				b17EndP1 = false;
+				b16EndP1 = false;
+			}
+		}
+
+		if(!b16EndP1 && !b17EndP1){
+			b16.y += 2;
+			b17.y += 2;
+			if(b16.y > 270 || b17.y > 270){
+				b16.y = -bloc16.height;
+				b17.y = -bloc17.height;
+				b16EndP1 = true;
+				b17EndP1 = true;
+				b5EndP1 = false;
+				b6EndP1 = false;
+				b7EndP1 = false;
+			}
+		}
+
+		if(!b16EndP1 && !b17EndP1){
+			b16.y += 2;
+			b17.y += 2;
+			if(b16.y > 270 || b17.y > 270){
+				b16.y = -bloc16.height;
+				b17.y = -bloc17.height;
+				b16EndP1 = true;
+				b17EndP1 = true;
+				b5EndP1 = false;
+				b6EndP1 = false;
+				b7EndP1 = false;
+			}
+		}
+
+		if(!b5EndP1 && !b6EndP1 && !b7EndP1){
+			b5.y -= 2;
+			b6.y -= 2;
+			b7.y -= 2;
+			if(b5.y < 0 || b6.y < 0 || b7.y < 0){
+				b5.y = 256;
+				b6.y = 256;
+				b7.y = 256;
+				b5EndP1 = true;
+				b6EndP1 = true;
+				b7EndP1 = true;
+				b10EndP1 = false;
+			}
+		}
+
+		if(!b10EndP1){
+			b10.x += 10;
+			if(b10.x > 512){
+				b10.y = 256;
+				b10EndP1 = true;
+				b9EndP1 = false;
+			}
+		}
+
+		if(!b9EndP1){
+			b9.x += 10;
+			if(b9.x > 512){
+				b9.y = 256;
+				b9EndP1 = true;
+				b19EndP1 = false;
+			}
+		}
+
+		if(!b19EndP1){
+			curve += 0.5;
+			if(curve > 180) curve = 0;
+			b19.x += 2;
+			b19.y += 10 * Math.sin(curve);
+			if(b19.x > 512){
+				b19.x = -bloc19.width;
+				b19.y = -bloc19.height;
+				b19EndP1 = true;
+				b8EndP1 = false;
+				b13EndP1 = false;
+				b14EndP1 = false;
+			}
+		}
+
+		if(!b8EndP1 && !b13EndP1 && b14EndP1){
+			b8.x += 2;
+			b8.y -= 1;
+			b13.x += 2;
+			b14.x += 2;
+			if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
+				b8.x = -bloc8.width;
+				b8.y = 256;
+				b13.x = -bloc13.width;
+				b14.x = -bloc14.width;
+				b8EndP1 = true;
+				b13EndP1 = true;
+				b14EndP1 = true;
+				b6EndP2 = false;
+				b13EndP2 = false;
+				b14EndP2 = false;
+			}
+		}
+
+		if(!b6EndP2 && !b13EndP2 && b14EndP2){
+			b6.y -= 2;
+			b13.x += 2;
+			b14.x += 2;
+			if(( b6.y < 0 || b13.x > 512 || b14.x > 512){
+				b6.y = 256;
+				b13.x = -bloc13.width;
+				b14.x = -bloc14.width;
+				b6EndP2 = true;
+				b13EndP2 = true;
+				b14EndP2 = true;
+				b4EndP2 = false;
+				b5EndP2 = false;
+				b7EndP2 = false;
+			}
+		}
+
+		if(!b4EndP2 && !b5EndP2 && b7EndP2){
+			b5.y -= 2;
+			b7.y -= 2;
+			if(b5.y < 0 || b7.y < 0){
+				b5.y = 256;
+				b7.y = 256;
+				b4EndP2 = true;
+				b5EndP2 = true;
+				b7EndP2 = true;
+			}
+		}
 
 
 		if (collisions(b1,p1)) {
@@ -372,13 +554,36 @@ window.onload = function() {
 					mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - 15;
 					mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop - 15;
 					}
+
+					p1.x = mouseX;
+					p1.y = mouseY;
+
 				}
 
 		function render() {
 			context.drawImage(background, 0, 0);
 			context.drawImage(joueur, mouseX, mouseY);
 			context.drawImage(lifeBar, lB.x, lB.y);
-
+			context.drawImage(bloc1, b1.x, b1.y);
+			context.drawImage(bloc2, b2.x, b2.y);
+			context.drawImage(bloc3, b3.x, b3.y);
+			context.drawImage(bloc4, b4.x, b4.y);
+			context.drawImage(bloc5, b5.x, b5.y);
+			context.drawImage(bloc6, b6.x, b6.y);
+			context.drawImage(bloc7, b7.x, b7.y);
+			context.drawImage(bloc8, b8.x, b8.y);
+			context.drawImage(bloc9, b9.x, b9.y);
+			context.drawImage(bloc10, b10.x, b10.y);
+			context.drawImage(bloc11, b11.x, b11.y);
+			context.drawImage(bloc12, b12.x, b12.y);
+			context.drawImage(bloc13, b13.x, b13.y);
+			context.drawImage(bloc14, b14.x, b14.y);
+			context.drawImage(bloc15, b15.x, b15.y);
+			context.drawImage(bloc16, b16.x, b16.y);
+			context.drawImage(bloc17, b17.x, b17.y);
+			context.drawImage(bloc18, b18.x, b18.y);
+			context.drawImage(bloc19, b19.x, b19.y);
+			context.drawImage(bloc20, b20.x, b20.y);
 		}
 
 		function collisions(A,B) {
