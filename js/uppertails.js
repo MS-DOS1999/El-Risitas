@@ -89,7 +89,7 @@ window.onload = function() {
 
 			b3.h = bloc3.height;
 			b3.w = bloc3.width;
-			b3.y = 100% / 3;
+			b3.y = 0;
 			b3.x = 0;
 			b3.vX = 0;
 			b3.vY = 0;
@@ -97,7 +97,7 @@ window.onload = function() {
 			b4.h = bloc4.height;
 			b4.w = bloc4.width;
 			b4.y = 256;
-			b4.x = 100% / 3;
+			b4.x = 0;
 			b4.vX = 0;
 			b4.vY = 0;
 
@@ -125,34 +125,34 @@ window.onload = function() {
 			b8.h = bloc8.height;
 			b8.w = bloc8.width;
 			b8.y = 256;
-			b8.x = -(bloc8.width);
+			b8.x = 0;
 			b8.vX = 0;
 			b8.vY = 0;
 
 			b9.h = bloc9.height;
 			b9.w = bloc9.width;
-			b9.y = 100% / 3;
-			b9.x = -(bloc9.width);
+			b9.y = 0;
+			b9.x = 0;
 			b9.vX = 0;
 			b9.vY = 0;
 
 			b10.h = bloc10.height;
 			b10.w = bloc10.width;
-			b10.y = (100% / 3) * 2;
-			b10.x = (bloc10.width);
+			b10.y = 0;
+			b10.x = 0;
 			b10.vX = 0;
 			b10.vY = 0;
 
 			b11.h = bloc11.height;
 			b11.w = bloc11.width;
-			b11.y = -(bloc11.height);
-			b11.x = (100% / 3) * 2;
+			b11.y = 0;
+			b11.x = 0;
 			b11.vX = 0;
 			b11.vY = 0;
 
 			b12.h = bloc12.height;
 			b12.w = bloc12.width;
-			b12.y = -(bloc12.height);
+			b12.y = 0;
 			b12.x = 0;
 			b12.vX = 0;
 			b12.vY = 0;
@@ -160,56 +160,56 @@ window.onload = function() {
 			b13.h = bloc13.height;
 			b13.w = bloc13.width;
 			b13.y = 0;
-			b13.x = -(bloc13.width);
+			b13.x = 0;
 			b13.vX = 0;
 			b13.vY = 0;
 
 			b14.h = bloc14.height;
 			b14.w = bloc14.width;
-			b14.y = (100% / 3) * 2;
-			b14.x = -(bloc14.width);
+			b14.y = 0;
+			b14.x = 0;
 			b14.vX = 0;
 			b14.vY = 0;
 
 			b15.h = bloc15.height;
 			b15.w = bloc15.width;
-			b15.y = -(bloc15.height);
-			b15.x = 51;
+			b15.y = 0;
+			b15.x = 0;
 			b15.vX = 0;
 			b15.vY = 0;
 
 			b16.h = bloc16.height;
 			b16.w = bloc16.width;
-			b16.y = -(bloc16.height);
-			b16.x = 461;
+			b16.y = 0;
+			b16.x = 0;
 			b16.vX = 0;
 			b16.vY = 0;
 
 			b17.h = bloc17.height;
 			b17.w = bloc17.width;
-			b17.y = -(bloc17.height);
-			b17.x = 205;
+			b17.y = 0;
+			b17.x = 0;
 			b17.vX = 0;
 			b17.vY = 0;
 
 			b18.h = bloc18.height;
 			b18.w = bloc18.width;
-			b18.y = -(bloc17.height);
-			b18.x = 411;
+			b18.y = 0;
+			b18.x = 0;
 			b18.vX = 0;
 			b18.vY = 0;
 
 			b19.h = bloc19.height;
 			b19.w = bloc19.width;
-			b19.y = 200;
-			b19.x = -(bloc19.width);
+			b19.y = 0;
+			b19.x = 0;
 			b19.vX = 0;
 			b19.vY = b19.vY + Math.sin(b19.vY);
 
 			b20.h = bloc20.height;
 			b20.w = bloc20.width;
-			b20.y = 256;
-			b20.x = 512;
+			b20.y = 0;
+			b20.x = 0;
 			b20.vX = b20.vX + Math.cos(b20.vX);
 			b20.vY = b20.vY + Math.sin(b20.vY);
 			// Je déterminerai les positions et les placements
