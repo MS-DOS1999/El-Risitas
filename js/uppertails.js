@@ -371,7 +371,7 @@ window.onload = function() {
 			canvas.height = H;
 
 		 lifeBar.src = 0;
-		 joueur.src = 0;
+
 
 			p1.h = joueur.height;
 			p1.w = joueur.width;
@@ -525,10 +525,15 @@ window.onload = function() {
 			lB.w = lifeBar.width;
 			lB.y = 10;
 			lB.x = 10;
- }
+
+			// call function again to restart on click, then reset player
+					canvas.addEventListener('click', window.onload(),true);
+					joueur.src = 0;
+
+}
 
 	    render();
-    }
+}
 
 		function souris(e){
 					if (e.x != undefined && e.y != undefined){
@@ -553,7 +558,5 @@ window.onload = function() {
 			if (A.y+A.h < B.y || A.y > B.y+B.h || A.x > B.x+B.w || A.x+A.w < B.x)
 				return false;
 				return true;
-
 		}
-
 	}
