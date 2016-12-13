@@ -130,7 +130,7 @@ window.onload = function() {
 
 			b9.h = bloc9.height;
 			b9.w = bloc9.width;
-			b9.y = 256 / 3;
+			b9.y = 0;
 			b9.x = -(bloc9.width);
 			b9.vX = 0;
 			b9.vY = 0;
@@ -158,7 +158,7 @@ window.onload = function() {
 
 			b13.h = bloc13.height;
 			b13.w = bloc13.width;
-			b13.y = 0;
+			b13.y = 256 / 3;
 			b13.x = -(bloc13.width);
 			b13.vX = 0;
 			b13.vY = 0;
