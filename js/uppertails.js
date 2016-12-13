@@ -88,7 +88,7 @@ window.onload = function() {
 
 			b3.h = bloc3.height;
 			b3.w = bloc3.width;
-			b3.y = 100% / 3;
+			b3.y = 256 / 3;
 			b3.x = 0;
 			b3.vX = 0;
 			b3.vY = 0;
@@ -96,7 +96,7 @@ window.onload = function() {
 			b4.h = bloc4.height;
 			b4.w = bloc4.width;
 			b4.y = 256;
-			b4.x = 100% / 3;
+			b4.x = 512 / 3;
 			b4.vX = 0;
 			b4.vY = 0;
 
@@ -130,14 +130,14 @@ window.onload = function() {
 
 			b9.h = bloc9.height;
 			b9.w = bloc9.width;
-			b9.y = 100% / 3;
+			b9.y = 256 / 3;
 			b9.x = -(bloc9.width);
 			b9.vX = 0;
 			b9.vY = 0;
 
 			b10.h = bloc10.height;
 			b10.w = bloc10.width;
-			b10.y = (100% / 3) * 2;
+			b10.y = (256 / 3) * 2;
 			b10.x = (bloc10.width);
 			b10.vX = 0;
 			b10.vY = 0;
@@ -145,7 +145,7 @@ window.onload = function() {
 			b11.h = bloc11.height;
 			b11.w = bloc11.width;
 			b11.y = -(bloc11.height);
-			b11.x = (100% / 3) * 2;
+			b11.x = (512 / 3) * 2;
 			b11.vX = 0;
 			b11.vY = 0;
 
@@ -165,7 +165,7 @@ window.onload = function() {
 
 			b14.h = bloc14.height;
 			b14.w = bloc14.width;
-			b14.y = (100% / 3) * 2;
+			b14.y = (256 / 3) * 2;
 			b14.x = -(bloc14.width);
 			b14.vX = 0;
 			b14.vY = 0;
