@@ -36,6 +36,9 @@ lifeBar = new Image();
 
 var lifeCounter = 3;
 
+var sndLevel = new Audio("sound/Whirlwind.mp3");
+var levelmusic = 1;
+
 
 //link images to var
 joueur.src = "img/heart.png";
@@ -209,6 +212,11 @@ window.onload = function() {
 
     }
     function main() {
+	    
+		sndLevel.addEventListener('ended', function() {
+					this.currentTime = 0;
+					this.play();
+		}, false);
 
 		if(lifeCounter === 2){
 			lifeBar.src = "img/jauge_demi1.png";
@@ -218,6 +226,10 @@ window.onload = function() {
 		}
 
 		if(!b1EndP1 && !b2EndP1){
+			if(levelmusic === 1){
+				sndLevel.play();
+				levelmusic = 0;
+			}
 			b1.x += 2;
 			b1.y += 1;
 			b2.x -= 2;
