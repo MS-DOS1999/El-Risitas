@@ -206,7 +206,7 @@ window.onload = function() {
 
 			mouseY = p1.y;
 			mouseX = p1.x;
-      			setInterval(main, 10);
+      setInterval(main, 10);
 			canvas.addEventListener("mousemove", souris, false);
 			document.body.style.cursor = 'none';
 
