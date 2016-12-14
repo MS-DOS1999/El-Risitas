@@ -257,538 +257,539 @@ window.onload = function() {
 			}
 		}
 
-			if (megaLoop) {
+			if(Phase1) {
 
-				if(Phase1) {
+				if(!b1EndP1 && !b2EndP1){
 
-					if(!b1EndP1 && !b2EndP1){
-
-						if(levelmusic === 1){
-							sndLevel.play();
-							levelmusic = 0;
-						}
-
-						b1.x += 2 * counterP1 * counterMegaLoop;
-						b1.y += 1 * counterP1 * counterMegaLoop;
-						b2.x -= 2 * counterP1 * counterMegaLoop;
-						b2.y += 1 * counterP1 * counterMegaLoop;
-						if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
-							b1.y = 0;
-							b1.x = -bloc1.width;
-							b2.x = 512;
-							b2.y = 0;
-							b1EndP1 = true;
-							b2EndP1 = true;
-							b3EndP1 = false;
-						}
+					if(levelmusic === 1){
+						sndLevel.play();
+						levelmusic = 0;
 					}
 
-					if(!b3EndP1){
-						b3.x += 10 * counterP1 * counterMegaLoop;
-						if(b3.x > 530){
-							b3.x = -bloc3.width;
-							b3EndP1 = true;
-							b12EndP1 = false;
+					b1.x += 2 * counterP1 * counterMegaLoop;
+					b1.y += 1 * counterP1 * counterMegaLoop;
+					b2.x -= 2 * counterP1 * counterMegaLoop;
+					b2.y += 1 * counterP1 * counterMegaLoop;
+					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
+						b1.y = 0;
+						b1.x = -bloc1.width;
+						b2.x = 512;
+						b2.y = 0;
+						b1EndP1 = true;
+						b2EndP1 = true;
+						b3EndP1 = false;
+					}
+				}
+
+				if(!b3EndP1){
+					b3.x += 10 * counterP1 * counterMegaLoop;
+					if(b3.x > 530){
+						b3.x = -bloc3.width;
+						b3EndP1 = true;
+						b12EndP1 = false;
+					}
+				}
+
+				if(!b12EndP1){
+					b12.y += 5 * counterP1 * counterMegaLoop;
+					if(b12.y > 270){
+						b12.y = -bloc12.height;
+						b12EndP1 = true;
+						b11EndP1 = false;
+					}
+				}
+
+				if(!b11EndP1){
+					b11.y += 5* counterP1 * counterMegaLoop;
+					if(b11.y > 270){
+						b11.y = -bloc11.height;
+						b11EndP1 = true;
+						b4EndP1 = false;
+					}
+				}
+
+				if(!b4EndP1){
+					b4.y -= 5 * counterP1 * counterMegaLoop;
+					if(b4.y < -30){
+						b4.y = 256;
+						b4EndP1 = true;
+						b20EndP1 = false;
+					}
+				}
+
+				if(!b20EndP1){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b20.x -= 2 * counterP1 * counterMegaLoop;
+					b20.y -= counterP1 * counterMegaLoop + (10 * Math.sin(curve));
+					if(b20.y < 0 || b20.x < 0){
+						b20.y = 256;
+						b20.x = 512;
+						b20EndP1 = true;
+						b15EndP1 = false;
+						b18EndP1 = false;
+					}
+				}
+
+				if(!b15EndP1 && !b18EndP1){
+					b15.y += 2 * counterP1 * counterMegaLoop;
+					b18.y += 2 * counterP1 * counterMegaLoop;
+					if(b15.y > 270 || b18.y > 270){
+						b15.y = -bloc15.height;
+						b18.y = -bloc18.height;
+						b15EndP1 = true;
+						b18EndP1 = true;
+						b17EndP1 = false;
+						b16EndP1 = false;
+					}
+				}
+
+				if(!b16EndP1 && !b17EndP1){
+					b16.y += 2 * counterP1 * counterMegaLoop;
+					b17.y += 2 * counterP1 * counterMegaLoop;
+					if(b16.y > 270 || b17.y > 270){
+						b16.y = -bloc16.height;
+						b17.y = -bloc17.height;
+						b16EndP1 = true;
+						b17EndP1 = true;
+						b5EndP1 = false;
+						b6EndP1 = false;
+						b7EndP1 = false;
+					}
+				}
+
+				if(!b5EndP1 && !b6EndP1 && !b7EndP1){
+					b5.y -= 2 * counterP1 * counterMegaLoop;
+					b6.y -= 2 * counterP1 * counterMegaLoop;
+					b7.y -= 2 * counterP1 * counterMegaLoop;
+					if(b5.y < 0 || b6.y < 0 || b7.y < 0){
+						b5.y = 256;
+						b6.y = 256;
+						b7.y = 256;
+						b5EndP1 = true;
+						b6EndP1 = true;
+						b7EndP1 = true;
+						b10EndP1 = false;
+					}
+				}
+
+				if(!b10EndP1){
+					b10.x += 10 * counterP1 * counterMegaLoop;
+					if(b10.x > 512){
+						b10.y = 256;
+						b10EndP1 = true;
+						b9EndP1 = false;
+					}
+				}
+
+				if(!b9EndP1){
+					b9.x += 10 * counterP1 * counterMegaLoop;
+					if(b9.x > 512){
+						b9.y = 256;
+						b9EndP1 = true;
+						b19EndP1 = false;
+					}
+				}
+
+				if(!b19EndP1){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b19.x += 2 * counterP1 * counterMegaLoop;
+					b19.y += 10 * Math.sin(curve) * counterP1 * counterMegaLoop;
+					if(b19.x > 512){
+						b19.y = 200;
+						b19.x = -(bloc19.width);
+						b19EndP1 = true;
+						b8EndP1 = false;
+						b13EndP1 = false;
+						b14EndP1 = false;
+					}
+				}
+
+				if(!b8EndP1 && !b13EndP1 && !b14EndP1){
+					b8.x += 2 * counterP1 * counterMegaLoop;
+					b8.y -= 1 * counterP1 * counterMegaLoop;
+					b13.x += 2 * counterP1 * counterMegaLoop;
+					b14.x += 2 * counterP1 * counterMegaLoop;
+					if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
+						b8.x = -bloc8.width;
+						b8.y = 256;
+						b13.x = -bloc13.width;
+						b14.x = -bloc14.width;
+						b8EndP1 = true;
+						b13EndP1 = true;
+						b14EndP1 = true;
+						if(counterP1 === 2) {
+						b6EndP2 = false;
+						b13EndP2 = false;
+						b14EndP2 = false;
+						Phase1 = false;
+						Phase2 = true;
+						}
+						if(counterP1 === 1) {
+							b1EndP1 = false;
+							b2EndP1 = false;
+							counterP1++;
 						}
 					}
+				}
+			}
 
-					if(!b12EndP1){
-						b12.y += 5 * counterP1 * counterMegaLoop;
-						if(b12.y > 270){
-							b12.y = -bloc12.height;
-							b12EndP1 = true;
-							b11EndP1 = false;
-						}
+			if(Phase2) {
+
+				if(!b6EndP2 && !b13EndP2 && !b14EndP2){
+					b6.y -= 2 * counterP2 * counterMegaLoop;
+					b13.x += 2 * counterP2 * counterMegaLoop;
+					b14.x += 2 * counterP2 * counterMegaLoop;
+					if(b13.x > 512 || b14.x > 512){
+						b6.y = 256;
+						b13.x = -bloc13.width;
+						b14.x = -bloc14.width;
+						b6EndP2 = true;
+						b13EndP2 = true;
+						b14EndP2 = true;
+						b4EndP2 = false;
+						b5EndP2 = false;
+						b7EndP2 = false;
 					}
+				}
 
-					if(!b11EndP1){
-						b11.y += 5* counterP1 * counterMegaLoop;
-						if(b11.y > 270){
-							b11.y = -bloc11.height;
-							b11EndP1 = true;
-							b4EndP1 = false;
-						}
+				if(!b4EndP2 && !b5EndP2 && !b7EndP2){
+					b4.y -= 5 * counterP2 * counterMegaLoop;
+					b5.y -= 2 * counterP2 * counterMegaLoop;
+					b7.y -= 2 * counterP2 * counterMegaLoop;
+					if(b5.y < 0 || b7.y < 0){
+						b4.y = 256;
+						b5.y = 256;
+						b7.y = 256;
+						b4EndP2 = true;
+						b5EndP2 = true;
+						b7EndP2 = true;
+						b1EndP2 = false;
+						b3EndP2 = false;
+						b8EndP2 = false;
 					}
+				}
 
-					if(!b4EndP1){
-						b4.y -= 5 * counterP1 * counterMegaLoop;
-						if(b4.y < -30){
-							b4.y = 256;
-							b4EndP1 = true;
-							b20EndP1 = false;
-						}
+				if(!b1EndP2 && !b3EndP2 && !b8EndP2){
+					b1.x += 2 * counterP2 * counterMegaLoop;
+					b1.y += 1 * counterP2 * counterMegaLoop;
+					b3.x += 10 * counterP2 * counterMegaLoop;
+					b8.x += 2 * counterP2 * counterMegaLoop;
+					b8.y -= 1 * counterP2 * counterMegaLoop;
+					if((b1.x > 512 || b1.y > 256) && b3.x > 530 && ( b8.x > 512 || b8.y < 0 )){
+						b1.x = 0;
+						b1.y = -b1.width;
+						b3.x = -bloc3.width;
+						b8.x = -bloc8.width;
+						b8.y = 256;
+						b1EndP2 = true;
+						b3EndP2 = true;
+						b8EndP2 = true;
+						b11EndP2 = false;
+						b12EndP2 = false;
+						b20EndP2 = false;
 					}
+				}
 
-					if(!b20EndP1){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b20.x -= 2 * counterP1 * counterMegaLoop;
-						b20.y -= counterP1 * counterMegaLoop + (10 * Math.sin(curve));
-						if(b20.y < 0 || b20.x < 0){
-							b20.y = 256;
-							b20.x = 512;
-							b20EndP1 = true;
-							b15EndP1 = false;
-							b18EndP1 = false;
-						}
+				if(!b11EndP2 && !b12EndP2 && !b20EndP2){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b11.y += 5 * counterP2 * counterMegaLoop;
+					b12.y += 5 * counterP2 * counterMegaLoop;
+					b20.x -= 2 * counterP2 * counterMegaLoop;
+					b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
+					if(b11.y > 270 && b12.y > 270 && ( b20.y < 0 || b20.x < 0 )){
+						b11.y = -bloc11.height;
+						b12.y = -bloc12.height;
+						b20.y = 256;
+						b20.x = 512;
+						b11EndP2 = true;
+						b12EndP2 = true;
+						b20EndP2 = true;
+						b15EndP2 = false;
+						b16EndP2 = false;
+						b17EndP2 = false;
+						b18EndP2 = false;
+						b19EndP2 = false;
 					}
+				}
 
-					if(!b15EndP1 && !b18EndP1){
-						b15.y += 2 * counterP1 * counterMegaLoop;
-						b18.y += 2 * counterP1 * counterMegaLoop;
-						if(b15.y > 270 || b18.y > 270){
-							b15.y = -bloc15.height;
-							b18.y = -bloc18.height;
-							b15EndP1 = true;
-							b18EndP1 = true;
-							b17EndP1 = false;
-							b16EndP1 = false;
+				if(!b15EndP2 && !b16EndP2 && !b17EndP2 && !b18EndP2 && !b19EndP2){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b15.y += 2 * counterP2 * counterMegaLoop;
+					b16.y += 2 * counterP2 * counterMegaLoop;
+					b17.y += 2 * counterP2 * counterMegaLoop;
+					b18.y += 2 * counterP2 * counterMegaLoop;
+					b19.x += 2 * counterP2 * counterMegaLoop;
+					b19.y += 10 * Math.sin(curve) * counterP2 * counterMegaLoop;
+					if(b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
+						b15.y = -bloc15.height;
+						b16.y = -bloc16.height;
+						b17.y = -bloc17.height;
+						b18.y = -bloc18.height;
+						b19.y = 200;
+						b19.x = -(bloc19.width);
+						b15EndP2 = true;
+						b16EndP2 = true;
+						b17EndP2 = true;
+						b18EndP2 = true;
+						b19EndP2 = true;
+						if(counterP2 === 2){
+							b1EndP3 = false;
+							b2EndP3 = false;
+							b3EndP3 = false;
+							b4EndP3 = false;
+							b8EndP3 = false;
+							b20EndP3 = false;
+							Phase2 = false;
+							Phase3 = true;
 						}
-					}
-
-					if(!b16EndP1 && !b17EndP1){
-						b16.y += 2 * counterP1 * counterMegaLoop;
-						b17.y += 2 * counterP1 * counterMegaLoop;
-						if(b16.y > 270 || b17.y > 270){
-							b16.y = -bloc16.height;
-							b17.y = -bloc17.height;
-							b16EndP1 = true;
-							b17EndP1 = true;
-							b5EndP1 = false;
-							b6EndP1 = false;
-							b7EndP1 = false;
-						}
-					}
-
-					if(!b5EndP1 && !b6EndP1 && !b7EndP1){
-						b5.y -= 2 * counterP1 * counterMegaLoop;
-						b6.y -= 2 * counterP1 * counterMegaLoop;
-						b7.y -= 2 * counterP1 * counterMegaLoop;
-						if(b5.y < 0 || b6.y < 0 || b7.y < 0){
-							b5.y = 256;
-							b6.y = 256;
-							b7.y = 256;
-							b5EndP1 = true;
-							b6EndP1 = true;
-							b7EndP1 = true;
-							b10EndP1 = false;
-						}
-					}
-
-					if(!b10EndP1){
-						b10.x += 10 * counterP1 * counterMegaLoop;
-						if(b10.x > 512){
-							b10.y = 256;
-							b10EndP1 = true;
-							b9EndP1 = false;
-						}
-					}
-
-					if(!b9EndP1){
-						b9.x += 10 * counterP1 * counterMegaLoop;
-						if(b9.x > 512){
-							b9.y = 256;
-							b9EndP1 = true;
-							b19EndP1 = false;
-						}
-					}
-
-					if(!b19EndP1){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b19.x += 2 * counterP1 * counterMegaLoop;
-						b19.y += 10 * Math.sin(curve) * counterP1 * counterMegaLoop;
-						if(b19.x > 512){
-							b19.y = 200;
-							b19.x = -(bloc19.width);
-							b19EndP1 = true;
-							b8EndP1 = false;
-							b13EndP1 = false;
-							b14EndP1 = false;
-						}
-					}
-
-					if(!b8EndP1 && !b13EndP1 && !b14EndP1){
-						b8.x += 2 * counterP1 * counterMegaLoop;
-						b8.y -= 1 * counterP1 * counterMegaLoop;
-						b13.x += 2 * counterP1 * counterMegaLoop;
-						b14.x += 2 * counterP1 * counterMegaLoop;
-						if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
-							b8.x = -bloc8.width;
-							b8.y = 256;
-							b13.x = -bloc13.width;
-							b14.x = -bloc14.width;
-							b8EndP1 = true;
-							b13EndP1 = true;
-							b14EndP1 = true;
-							if(counterP1 === 2) {
+						if(counterP2 === 1){
 							b6EndP2 = false;
 							b13EndP2 = false;
 							b14EndP2 = false;
-							Phase1 = false;
-							Phase2 = true;
-							}
-							if(counterP1 === 1) {
-								b1EndP1 = false;
-								b2EndP1 = false;
-								counterP1++;
-							}
+							counterP2 ++;
 						}
 					}
 				}
+			}
 
-				if(Phase2) {
+			if (Phase3) {
 
-					if(!b6EndP2 && !b13EndP2 && !b14EndP2){
-						b6.y -= 2 * counterP2 * counterMegaLoop;
-						b13.x += 2 * counterP2 * counterMegaLoop;
-						b14.x += 2 * counterP2 * counterMegaLoop;
-						if(b13.x > 512 || b14.x > 512){
-							b6.y = 256;
-							b13.x = -bloc13.width;
-							b14.x = -bloc14.width;
-							b6EndP2 = true;
-							b13EndP2 = true;
-							b14EndP2 = true;
-							b4EndP2 = false;
-							b5EndP2 = false;
-							b7EndP2 = false;
-						}
-					}
-
-					if(!b4EndP2 && !b5EndP2 && !b7EndP2){
-						b4.y -= 5 * counterP2 * counterMegaLoop;
-						b5.y -= 2 * counterP2 * counterMegaLoop;
-						b7.y -= 2 * counterP2 * counterMegaLoop;
-						if(b5.y < 0 || b7.y < 0){
-							b4.y = 256;
-							b5.y = 256;
-							b7.y = 256;
-							b4EndP2 = true;
-							b5EndP2 = true;
-							b7EndP2 = true;
-							b1EndP2 = false;
-							b3EndP2 = false;
-							b8EndP2 = false;
-						}
-					}
-
-					if(!b1EndP2 && !b3EndP2 && !b8EndP2){
-						b1.x += 2 * counterP2 * counterMegaLoop;
-						b1.y += 1 * counterP2 * counterMegaLoop;
-						b3.x += 10 * counterP2 * counterMegaLoop;
-						b8.x += 2 * counterP2 * counterMegaLoop;
-						b8.y -= 1 * counterP2 * counterMegaLoop;
-						if((b1.x > 512 || b1.y > 256) && b3.x > 530 && ( b8.x > 512 || b8.y < 0 )){
-							b1.x = 0;
-							b1.y = -b1.width;
-							b3.x = -bloc3.width;
-							b8.x = -bloc8.width;
-							b8.y = 256;
-							b1EndP2 = true;
-							b3EndP2 = true;
-							b8EndP2 = true;
-							b11EndP2 = false;
-							b12EndP2 = false;
-							b20EndP2 = false;
-						}
-					}
-
-					if(!b11EndP2 && !b12EndP2 && !b20EndP2){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b11.y += 5 * counterP2 * counterMegaLoop;
-						b12.y += 5 * counterP2 * counterMegaLoop;
-						b20.x -= 2 * counterP2 * counterMegaLoop;
-						b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
-						if(b11.y > 270 && b12.y > 270 && ( b20.y < 0 || b20.x < 0 )){
-							b11.y = -bloc11.height;
-							b12.y = -bloc12.height;
-							b20.y = 256;
-							b20.x = 512;
-							b11EndP2 = true;
-							b12EndP2 = true;
-							b20EndP2 = true;
-							b15EndP2 = false;
-							b16EndP2 = false;
-							b17EndP2 = false;
-							b18EndP2 = false;
-							b19EndP2 = false;
-						}
-					}
-
-					if(!b15EndP2 && !b16EndP2 && !b17EndP2 && !b18EndP2 && !b19EndP2){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b15.y += 2 * counterP2 * counterMegaLoop;
-						b16.y += 2 * counterP2 * counterMegaLoop;
-						b17.y += 2 * counterP2 * counterMegaLoop;
-						b18.y += 2 * counterP2 * counterMegaLoop;
-						b19.x += 2 * counterP2 * counterMegaLoop;
-						b19.y += 10 * Math.sin(curve) * counterP2 * counterMegaLoop;
-						if(b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
-							b15.y = -bloc15.height;
-							b16.y = -bloc16.height;
-							b17.y = -bloc17.height;
-							b18.y = -bloc18.height;
-							b19.y = 200;
-							b19.x = -(bloc19.width);
-							b15EndP2 = true;
-							b16EndP2 = true;
-							b17EndP2 = true;
-							b18EndP2 = true;
-							b19EndP2 = true;
-							if(counterP2 === 2){
-								b1EndP3 = false;
-								b2EndP3 = false;
-								b3EndP3 = false;
-								b4EndP3 = false;
-								b8EndP3 = false;
-								b20EndP3 = false;
-								Phase2 = false;
-								Phase3 = true;
-							}
-							if(counterP2 === 1){
-								b6EndP2 = false;
-								b13EndP2 = false;
-								b14EndP2 = false;
-								counterP2 ++;
-							}
-						}
+				if(!b1EndP3 && !b2EndP3 && !b3EndP3 && !b4EndP3 && !b8EndP3 && !b20EndP3){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b1.x += 2 * counterP3 * counterMegaLoop;
+					b1.y += 1 * counterP3 * counterMegaLoop;
+					b2.x -= 2 * counterP3 * counterMegaLoop;
+					b2.y += 1 * counterP3 * counterMegaLoop;
+					b3.x += 10 * counterP3 * counterMegaLoop;
+					b4.y -= 5 * counterP3 * counterMegaLoop;
+					b8.x += 2 * counterP3 * counterMegaLoop;
+					b8.y -= 1 * counterP3 * counterMegaLoop;
+					b20.x -= 2 * counterP3 * counterMegaLoop;
+					b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
+					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 || b20.x < 0)){
+						b1.x = 0;
+						b1.y = -b1.width;
+						b2.x = 512;
+						b2.y = 0;
+						b3.x = -bloc3.width;
+						b4.y = 256;
+						b8.x = -bloc8.width;
+						b8.y = 256;
+						b20.y = 256;
+						b20.x = 512;
+						b1EndP3 = true;
+						b2EndP3 = true;
+						b3EndP3 = true;
+						b4EndP3 = true;
+						b8EndP3 = true;
+						b20EndP3 = true;
+						b9EndP3 = false;
+						b10EndP3 = false;
+						b11EndP3 = false;
+						b12EndP3 = false;
 					}
 				}
 
-				if (Phase3) {
-
-					if(!b1EndP3 && !b2EndP3 && !b3EndP3 && !b4EndP3 && !b8EndP3 && !b20EndP3){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b1.x += 2 * counterP3 * counterMegaLoop;
-						b1.y += 1 * counterP3 * counterMegaLoop;
-						b2.x -= 2 * counterP3 * counterMegaLoop;
-						b2.y += 1 * counterP3 * counterMegaLoop;
-						b3.x += 10 * counterP3 * counterMegaLoop;
-						b4.y -= 5 * counterP3 * counterMegaLoop;
-						b8.x += 2 * counterP3 * counterMegaLoop;
-						b8.y -= 1 * counterP3 * counterMegaLoop;
-						b20.x -= 2 * counterP3 * counterMegaLoop;
-						b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
-						if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 || b20.x < 0)){
-							b1.x = 0;
-							b1.y = -b1.width;
-							b2.x = 512;
-							b2.y = 0;
-							b3.x = -bloc3.width;
-							b4.y = 256;
-							b8.x = -bloc8.width;
-							b8.y = 256;
-							b20.y = 256;
-							b20.x = 512;
-							b1EndP3 = true;
-							b2EndP3 = true;
-							b3EndP3 = true;
-							b4EndP3 = true;
-							b8EndP3 = true;
-							b20EndP3 = true;
-							b9EndP3 = false;
-							b10EndP3 = false;
-							b11EndP3 = false;
-							b12EndP3 = false;
-						}
-					}
-
-					if(!b9EndP3 && !b10EndP3 && !b11EndP3 && !b12EndP3){
-						b9.x += 10 * counterP3 * counterMegaLoop;
-						b10.x += 10 * counterP3 * counterMegaLoop;
-						b11.y += 5 * counterP3 * counterMegaLoop;
-						b12.y += 5 * counterP3 * counterMegaLoop;
-						if(b9.x > 512 && b10.x > 512 && b11.y > 270 && b12.y > 270){
-							b9.y = 256;
-							b10.y = 256;
-							b11.y = -bloc11.height;
-							b12.y = -bloc12.height;
-							b9EndP3 = true;
-							b10EndP3 = true;
-							b11EndP3 = true;
-							b12EndP3 = true;
-							b5EndP3 = false;
-							b6EndP3 = false;
-							b7EndP3 = false;
-							b15EndP3 = false;
-							b16EndP3 = false;
-							b17EndP3 = false;
-							b18EndP3 = false;
-							b19EndP3 = false;
-						}
-					}
-
-					if(!b5EndP3 && !b6EndP3 && !b7EndP3 && !b15EndP3 && !b16EndP3 && !b17EndP3 && !b18EndP3 && !b19EndP3){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b5.y -= 2 * counterP3 * counterMegaLoop;
-						b6.y -= 2 * counterP3 * counterMegaLoop;
-						b7.y -= 2 * counterP3 * counterMegaLoop;
-						b15.y += 2 * counterP3 * counterMegaLoop;
-						b16.y += 2 * counterP3 * counterMegaLoop;
-						b17.y += 2 * counterP3 * counterMegaLoop;
-						b18.y += 2 * counterP3 * counterMegaLoop;
-						b19.x += 2 * counterP3 * counterMegaLoop;
-						b19.y += 10 * Math.sin(curve);
-						if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
-							b5.y = 256;
-							b6.y = 256;
-							b7.y = 256;
-							b15.y = -bloc15.height;
-							b16.y = -bloc16.height;
-							b17.y = -bloc17.height;
-							b18.y = -bloc18.height;
-							b19.y = 200;
-							b19.x = -(bloc19.width);
-							b5EndP3 = true;
-							b6EndP3 = true;
-							b7EndP3 = true;
-							b15EndP3 = true;
-							b16EndP3 = true;
-							b17EndP3 = true;
-							b18EndP3 = true;
-							b19EndP3 = true;
-							if(counterP3 === 3){
-								b5EndP4 = false;
-								b6EndP4 = false;
-								b7EndP4 = false;
-								b9EndP4 = false;
-								b10EndP4 = false;
-								b13EndP4 = false;
-								b14EndP4 = false;
-								b15EndP4 = false;
-								b16EndP4 = false;
-								b17EndP4 = false;
-								b18EndP4 = false;
-								Phase3 = false;
-								Phase4 = true;
-							}
-							if(counterP3 < 3){
-								b1EndP3 = false;
-								b2EndP3 = false;
-								b3EndP3 = false;
-								b4EndP3 = false;
-								b8EndP3 = false;
-								b20EndP3 = false;
-								counterP3 ++;
-							}
-						}
+				if(!b9EndP3 && !b10EndP3 && !b11EndP3 && !b12EndP3){
+					b9.x += 10 * counterP3 * counterMegaLoop;
+					b10.x += 10 * counterP3 * counterMegaLoop;
+					b11.y += 5 * counterP3 * counterMegaLoop;
+					b12.y += 5 * counterP3 * counterMegaLoop;
+					if(b9.x > 512 && b10.x > 512 && b11.y > 270 && b12.y > 270){
+						b9.y = 256;
+						b10.y = 256;
+						b11.y = -bloc11.height;
+						b12.y = -bloc12.height;
+						b9EndP3 = true;
+						b10EndP3 = true;
+						b11EndP3 = true;
+						b12EndP3 = true;
+						b5EndP3 = false;
+						b6EndP3 = false;
+						b7EndP3 = false;
+						b15EndP3 = false;
+						b16EndP3 = false;
+						b17EndP3 = false;
+						b18EndP3 = false;
+						b19EndP3 = false;
 					}
 				}
 
-				if(Phase4){
-
-					if(!b5EndP4 && !b6EndP4 && !b7EndP4 && !b9EndP4 && !b10EndP4 && !b13EndP4 && !b14EndP4 && !b15EndP4 && !b16EndP4 && !b17EndP4 && !b18EndP4){
-						b5.y -= 2 * counterMegaLoop;
-						b6.y -= 2 * counterMegaLoop;
-						b7.y -= 2 * counterMegaLoop;
-						b9.x += 10 * counterMegaLoop;
-						b10.x += 10 * counterMegaLoop;
-						b13.x += 2 * counterMegaLoop;
-						b14.x += 2 * counterMegaLoop;
-						b15.y += 2 * counterMegaLoop;
-						b16.y += 2 * counterMegaLoop;
-						b17.y += 2 * counterMegaLoop;
-						b18.y += 2 * counterMegaLoop;
-						if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b14.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
-							b5.y = 256;
-							b6.y = 256;
-							b7.y = 256;
-							b9.y = 256;
-							b10.y = 256;
-							b13.x = -bloc13.width;
-							b14.x = -bloc14.width;
-							b15.y = -bloc15.height;
-							b16.y = -bloc16.height;
-							b17.y = -bloc17.height;
-							b18.y = -bloc18.height;
-							b5EndP4 = true;
-							b6EndP4 = true;
-							b7EndP4 = true;
-							b9EndP4 = true;
-							b10EndP4 = true;
-							b13EndP4 = true;
-							b14EndP4 = true;
-							b15EndP4 = true;
-							b16EndP4 = true;
-							b17EndP4 = true;
-							b18EndP4 = true;
-							b1EndP4 = false;
-							b2EndP4 = false;
-							b8EndP4 = false;
-							b11EndP4 = false;
-							b12EndP4 = false;
-							b20EndP4 = false;
+				if(!b5EndP3 && !b6EndP3 && !b7EndP3 && !b15EndP3 && !b16EndP3 && !b17EndP3 && !b18EndP3 && !b19EndP3){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b5.y -= 2 * counterP3 * counterMegaLoop;
+					b6.y -= 2 * counterP3 * counterMegaLoop;
+					b7.y -= 2 * counterP3 * counterMegaLoop;
+					b15.y += 2 * counterP3 * counterMegaLoop;
+					b16.y += 2 * counterP3 * counterMegaLoop;
+					b17.y += 2 * counterP3 * counterMegaLoop;
+					b18.y += 2 * counterP3 * counterMegaLoop;
+					b19.x += 2 * counterP3 * counterMegaLoop;
+					b19.y += 10 * Math.sin(curve);
+					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
+						b5.y = 256;
+						b6.y = 256;
+						b7.y = 256;
+						b15.y = -bloc15.height;
+						b16.y = -bloc16.height;
+						b17.y = -bloc17.height;
+						b18.y = -bloc18.height;
+						b19.y = 200;
+						b19.x = -(bloc19.width);
+						b5EndP3 = true;
+						b6EndP3 = true;
+						b7EndP3 = true;
+						b15EndP3 = true;
+						b16EndP3 = true;
+						b17EndP3 = true;
+						b18EndP3 = true;
+						b19EndP3 = true;
+						if(counterP3 === 3){
+							b5EndP4 = false;
+							b6EndP4 = false;
+							b7EndP4 = false;
+							b9EndP4 = false;
+							b10EndP4 = false;
+							b13EndP4 = false;
+							b14EndP4 = false;
+							b15EndP4 = false;
+							b16EndP4 = false;
+							b17EndP4 = false;
+							b18EndP4 = false;
+							Phase3 = false;
+							Phase4 = true;
+						}
+						if(counterP3 < 3){
+							b1EndP3 = false;
+							b2EndP3 = false;
+							b3EndP3 = false;
+							b4EndP3 = false;
+							b8EndP3 = false;
+							b20EndP3 = false;
+							counterP3 ++;
 						}
 					}
+				}
+			}
 
-					if(!b1EndP4 && !b2EndP4 && !b8EndP4 && !b11EndP4 && !b12EndP4 && !b20EndP4){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b1.x += 2 * counterMegaLoop;
-						b1.y += 1 * counterMegaLoop;
-						b2.x -= 2 * counterMegaLoop;
-						b2.y += 1 * counterMegaLoop;
-						b8.x += 2 * counterMegaLoop;
-						b8.y -= 1 * counterMegaLoop;
-						b11.y += 5 * counterMegaLoop;
-						b12.y += 5 * counterMegaLoop;
-						b20.x -= 2 * counterMegaLoop;
-						b20.y -= counterMegaLoop * (10 * Math.sin(curve));
-						if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && ( b8.x > 512 || b8.y < 0 ) && b11.y > 270 && b12.y > 270 && (b20.y < 0 || b20.x < 0)){
-							b1.x = 0;
-							b1.y = -b1.width;
-							b2.x = 512;
-							b2.y = 0;
-							b8.x = -bloc8.width;
-							b8.y = 256;
-							b11.y = -bloc11.height;
-							b12.y = -bloc12.height;
-							b20.y = 256;
-							b20.x = 512;
-							b1EndP4 = true;
-							b2EndP4 = true;
-							b8EndP4 = true;
-							b11EndP4 = true;
-							b12EndP4 = true;
-							b20EndP4 = true;
-							b3EndP4 = false;
-							b4EndP4 = false;
-							b19EndP4 = false;
-						}
+			if(Phase4){
+
+				if(!b5EndP4 && !b6EndP4 && !b7EndP4 && !b9EndP4 && !b10EndP4 && !b13EndP4 && !b14EndP4 && !b15EndP4 && !b16EndP4 && !b17EndP4 && !b18EndP4){
+					b5.y -= 2 * counterMegaLoop;
+					b6.y -= 2 * counterMegaLoop;
+					b7.y -= 2 * counterMegaLoop;
+					b9.x += 10 * counterMegaLoop;
+					b10.x += 10 * counterMegaLoop;
+					b13.x += 2 * counterMegaLoop;
+					b14.x += 2 * counterMegaLoop;
+					b15.y += 2 * counterMegaLoop;
+					b16.y += 2 * counterMegaLoop;
+					b17.y += 2 * counterMegaLoop;
+					b18.y += 2 * counterMegaLoop;
+					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b14.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
+						b5.y = 256;
+						b6.y = 256;
+						b7.y = 256;
+						b9.y = 256;
+						b10.y = 256;
+						b13.x = -bloc13.width;
+						b14.x = -bloc14.width;
+						b15.y = -bloc15.height;
+						b16.y = -bloc16.height;
+						b17.y = -bloc17.height;
+						b18.y = -bloc18.height;
+						b5EndP4 = true;
+						b6EndP4 = true;
+						b7EndP4 = true;
+						b9EndP4 = true;
+						b10EndP4 = true;
+						b13EndP4 = true;
+						b14EndP4 = true;
+						b15EndP4 = true;
+						b16EndP4 = true;
+						b17EndP4 = true;
+						b18EndP4 = true;
+						b1EndP4 = false;
+						b2EndP4 = false;
+						b8EndP4 = false;
+						b11EndP4 = false;
+						b12EndP4 = false;
+						b20EndP4 = false;
 					}
+				}
 
-					if(!b3EndP4 && !b4EndP4 && !b19EndP4){
-						curve += 0.5;
-						if(curve > 180) curve = 0;
-						b3.x += 10 * counterMegaLoop;
-						b4.y -= 5 * counterMegaLoop;
-						b19.x += 2 * counterMegaLoop;
-						b19.y += 10 * Math.sin(curve) * counterMegaLoop;
-						if(b3.x > 530 && b4.y < -30 && b19.x > 512){
-							b3.x = -bloc3.width;
-							b4.y = 256;
-							b19.y = 200;
-							b19.x = -(bloc19.width);
+				if(!b1EndP4 && !b2EndP4 && !b8EndP4 && !b11EndP4 && !b12EndP4 && !b20EndP4){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b1.x += 2 * counterMegaLoop;
+					b1.y += 1 * counterMegaLoop;
+					b2.x -= 2 * counterMegaLoop;
+					b2.y += 1 * counterMegaLoop;
+					b8.x += 2 * counterMegaLoop;
+					b8.y -= 1 * counterMegaLoop;
+					b11.y += 5 * counterMegaLoop;
+					b12.y += 5 * counterMegaLoop;
+					b20.x -= 2 * counterMegaLoop;
+					b20.y -= counterMegaLoop * (10 * Math.sin(curve));
+					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && ( b8.x > 512 || b8.y < 0 ) && b11.y > 270 && b12.y > 270 && (b20.y < 0 || b20.x < 0)){
+						b1.x = 0;
+						b1.y = -b1.width;
+						b2.x = 512;
+						b2.y = 0;
+						b8.x = -bloc8.width;
+						b8.y = 256;
+						b11.y = -bloc11.height;
+						b12.y = -bloc12.height;
+						b20.y = 256;
+						b20.x = 512;
+						b1EndP4 = true;
+						b2EndP4 = true;
+						b8EndP4 = true;
+						b11EndP4 = true;
+						b12EndP4 = true;
+						b20EndP4 = true;
+						b3EndP4 = false;
+						b4EndP4 = false;
+						b19EndP4 = false;
+					}
+				}
+
+				if(!b3EndP4 && !b4EndP4 && !b19EndP4){
+					curve += 0.5;
+					if(curve > 180) curve = 0;
+					b3.x += 10 * counterMegaLoop;
+					b4.y -= 5 * counterMegaLoop;
+					b19.x += 2 * counterMegaLoop;
+					b19.y += 10 * Math.sin(curve) * counterMegaLoop;
+					if(b3.x > 530 && b4.y < -30 && b19.x > 512){
+						b3.x = -bloc3.width;
+						b4.y = 256;
+						b19.y = 200;
+						b19.x = -(bloc19.width);
+						if(counterMegaLoop === 2){
 							b3EndP4 = true;
 							b4EndP4 = true;
 							b19EndP4 = true;
-							if(counterMegaLoop === 2){
-								megaLoop = false;
-							}
-							if(counterMegaLoop === 1){
-								counterP1 = 0;
-								counterP2 = 0;
-								counterP3 = 0;
-								counterP4 = 0;
-								b1EndP1 = false;
-								b2EndP1 = false;
-								counterMegaLoop ++;
-							}
+							Phase4 = false;
+						}
+						if(counterMegaLoop === 1){
+							b3EndP4 = true;
+							b4EndP4 = true;
+							b19EndP4 = true;
+							Phase4 = false;
+							counterP1 = 1;
+							counterP2 = 1;
+							counterP3 = 1;
+							b1EndP1 = false;
+							b2EndP1 = false;
+							Phase1 = true;
+							counterMegaLoop ++;
 						}
 					}
 				}
