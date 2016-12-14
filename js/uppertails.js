@@ -23,6 +23,13 @@ b6EndP4 = true, b7EndP4 = true, b8EndP4 = true, b9EndP4 = true, b10EndP4 = true,
 b11EndP4 = true, b12EndP4 = true, b13EndP4 = true, b14EndP4 = true, b15EndP4 = true,
 b16EndP4 = true, b17EndP4 = true, b18EndP4 = true, b19EndP4 = true, b20EndP4 = true;
 
+
+var invulnerable = 0;
+var animInvulnerable = 0;
+var GoInvul = 0;
+var EndLevel = 0;
+
+
 // Déclaration des variables
 var joueur = new Image(), background = new Image(),
 bloc1 = new Image(), bloc2 = new Image(), bloc3 = new Image(),
@@ -223,6 +230,31 @@ window.onload = function() {
 		}
 		if(lifeCounter === 1){
 			lifeBar.src = "img/jauge_demi2.png";
+		}
+
+		if(invulnerable ===1){
+			
+			
+			if(EndLevel === 0){
+				GoInvul++;
+				if(GoInvul === 20){
+					joueur.src = "img/heartvide.png";
+				}
+				if(GoInvul === 40){
+					joueur.src = "img/heart.png";
+					GoInvul = 0;
+				}
+			}
+			if(EndLevel === 1){
+				GoInvul++;
+				if(GoInvul === 20){
+					joueur.src = "img/heartvide.png";
+				}
+				if(GoInvul === 40){
+					joueur.src = "img/heartTransform14(Final).png";
+					GoInvul = 0;
+				}
+			}
 		}
 
 		if(!b1EndP1 && !b2EndP1){
@@ -701,127 +733,127 @@ window.onload = function() {
 			}
 		}
 
-		if (collisions(b1,p1)) {
+		if (collisions(b1,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b1.w = 0;
 				b1.h = 0;
-
+			invulnerability();
+				
 		}
-		if (collisions(b2,p1)) {
+		if (collisions(b2,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b2.w = 0;
 				b2.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b3,p1)) {
+		if (collisions(b3,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b3.w = 0;
 				b3.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b4,p1)) {
+		if (collisions(b4,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b4.w = 0;
 				b4.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b5,p1)) {
+		if (collisions(b5,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b5.w = 0;
 				b5.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b6,p1)) {
+		if (collisions(b6,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b6.w = 0;
 				b6.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b7,p1)) {
+		if (collisions(b7,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b7.w = 0;
 				b7.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b8,p1)) {
+		if (collisions(b8,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b8.w = 0;
 				b8.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b9,p1)) {
+		if (collisions(b9,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b9.w = 0;
 				b9.h = 0;
-
+				
 		}
-		if (collisions(b10,p1)) {
+		if (collisions(b10,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b10.w = 0;
 				b10.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b11,p1)) {
+		if (collisions(b11,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b11.w = 0;
 				b11.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b12,p1)) {
+		if (collisions(b12,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b12.w = 0;
 				b12.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b13,p1)) {
+		if (collisions(b13,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b13.w = 0;
 				b13.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b14,p1)) {
+		if (collisions(b14,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b14.w = 0;
 				b14.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b15,p1)) {
+		if (collisions(b15,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b15.w = 0;
 				b15.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b16,p1)) {
+		if (collisions(b16,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b16.w = 0;
 				b16.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b17,p1)) {
+		if (collisions(b17,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b17.w = 0;
 				b17.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b18,p1)) {
+		if (collisions(b18,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b18.w = 0;
 				b18.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b19,p1)) {
+		if (collisions(b19,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b19.w = 0;
 				b19.h = 0;
-
+				invulnerability();
 		}
-		if (collisions(b20,p1)) {
+		if (collisions(b20,p1) && invulnerable === 0) {
 				lifeCounter -= 1;
 				b20.w = 0;
 				b20.h = 0;
-
+				invulnerability();
 		}
-
 	    render();
     }
 
@@ -871,6 +903,15 @@ window.onload = function() {
 				return false;
 				return true;
 
+		}
+				function invulnerability(){
+			var snd = new Audio("sound/life-1.wav");
+					snd.play();
+			invulnerable = 1;
+			animInvulnerable = 1;
+			setTimeout(function(){invulnerable = 0;}, 2500);
+			
+			
 		}
 
 }
