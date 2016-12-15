@@ -4,7 +4,7 @@ var curve = 0;
 //VAR TIMER EVENT
 var Phase1 = true, Phase2 = false, Phase3 = false, Phase4 = false;
 var counterP1 = 1, counterP2 = 1, counterP3 = 1, counterP4 = 1;
-var megaLoop = true; counterMegaLoop = 1;
+var counterMegaLoop = 1;
 
 var b1EndP1 = false, b2EndP1 = false, b3EndP1 = true, b4EndP1 = true, b5EndP1 = true,
 b6EndP1 = true, b7EndP1 = true, b8EndP1 = true, b9EndP1 = true, b10EndP1 = true,
@@ -251,14 +251,14 @@ window.onload = function() {
 						joueur.src = "img/heart.png";
 						GoInvul = 0;
 					}
-					
+
 				}
-				
+
 				if(lifeCounter === 0){
 					joueur.src = "img/heartvide.png";
 				}
-				
-				
+
+
 			}
 			if(EndLevel === 1){
 				if(lifeCounter > 0){
@@ -271,7 +271,7 @@ window.onload = function() {
 						GoInvul = 0;
 					}
 				}
-				
+
 				if(lifeCounter === 0){
 					joueur.src = "img/heartvide.png";
 				}
@@ -995,7 +995,7 @@ window.onload = function() {
 			animInvulnerable = 1;
 
 			setTimeout(function(){invulnerable = 0; if(EndLevel === 0){joueur.src = "img/heart.png";} if(EndLevel === 1){joueur.src = "img/heartTransform14(Final).png";} if(lifeCounter === 0){lifeBar.src = "img/jauge_vide.png";}}, 2500);
-				
+
 		}
 
 }
