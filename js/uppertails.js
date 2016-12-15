@@ -1,4 +1,4 @@
-// FREE VAR
+// FREE VAR - Travail en cours sur FUNCTION Init
 let curve = 0;
 
 //VAR TIMER EVENT
