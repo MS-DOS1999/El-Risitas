@@ -1,40 +1,40 @@
 // FREE VAR
-var curve = 0;
+let curve = 0;
 
 //VAR TIMER EVENT
-var Phase1 = true, Phase2 = false, Phase3 = false, Phase4 = false;
-var counterP1 = 1, counterP2 = 1, counterP3 = 1, counterP4 = 1;
-var counterMegaLoop = 1;
+let Phase1 = true, Phase2 = false, Phase3 = false, Phase4 = false;
+let counterP1 = 1, counterP2 = 1, counterP3 = 1, counterP4 = 1;
+let counterMegaLoop = 1;
 
-var b1EndP1 = false, b2EndP1 = false, b3EndP1 = true, b4EndP1 = true, b5EndP1 = true,
+let b1EndP1 = false, b2EndP1 = false, b3EndP1 = true, b4EndP1 = true, b5EndP1 = true,
 b6EndP1 = true, b7EndP1 = true, b8EndP1 = true, b9EndP1 = true, b10EndP1 = true,
 b11EndP1 = true, b12EndP1 = true, b13EndP1 = true, b14EndP1 = true, b15EndP1 = true,
 b16EndP1 = true, b17EndP1 = true, b18EndP1 = true, b19EndP1 = true, b20EndP1 = true;
 
-var b1EndP2 = true, b2EndP2 = true, b3EndP2 = true, b4EndP2 = true, b5EndP2 = true,
+let b1EndP2 = true, b2EndP2 = true, b3EndP2 = true, b4EndP2 = true, b5EndP2 = true,
 b6EndP2 = true, b7EndP2 = true, b8EndP2 = true, b9EndP2 = true, b10EndP2 = true,
 b11EndP2 = true, b12EndP2 = true, b13EndP2 = true, b14EndP2 = true, b15EndP2 = true,
 b16EndP2 = true, b17EndP2 = true, b18EndP2 = true, b19EndP2 = true, b20EndP2 = true;
 
-var b1EndP3 = true, b2EndP3 = true, b3EndP3 = true, b4EndP3 = true, b5EndP3 = true,
+let b1EndP3 = true, b2EndP3 = true, b3EndP3 = true, b4EndP3 = true, b5EndP3 = true,
 b6EndP3 = true, b7EndP3 = true, b8EndP3 = true, b9EndP3 = true, b10EndP3 = true,
 b11EndP3 = true, b12EndP3 = true, b13EndP3 = true, b14EndP3 = true, b15EndP3 = true,
 b16EndP3 = true, b17EndP3 = true, b18EndP3 = true, b19EndP3 = true, b20EndP3 = true;
 
-var b1EndP4 = true, b2EndP4 = true, b3EndP4 = true, b4EndP4 = true, b5EndP4 = true,
+let b1EndP4 = true, b2EndP4 = true, b3EndP4 = true, b4EndP4 = true, b5EndP4 = true,
 b6EndP4 = true, b7EndP4 = true, b8EndP4 = true, b9EndP4 = true, b10EndP4 = true,
 b11EndP4 = true, b12EndP4 = true, b13EndP4 = true, b14EndP4 = true, b15EndP4 = true,
 b16EndP4 = true, b17EndP4 = true, b18EndP4 = true, b19EndP4 = true, b20EndP4 = true;
 
 
-var invulnerable = 0;
-var animInvulnerable = 0;
-var GoInvul = 0;
-var EndLevel = 0;
+let invulnerable = 0;
+let animInvulnerable = 0;
+let GoInvul = 0;
+let EndLevel = 0;
 
 
 // Déclaration des variables
-var joueur = new Image(), background = new Image(),
+let joueur = new Image(), background = new Image(),
 bloc1 = new Image(), bloc2 = new Image(), bloc3 = new Image(),
 bloc4 = new Image(), bloc5 = new Image(), bloc6 = new Image(),
 bloc7 = new Image(), bloc8 = new Image(), bloc9 = new Image(),
@@ -44,10 +44,10 @@ bloc16 = new Image(), bloc17 = new Image(), bloc18 = new Image(),
 bloc19 = new Image(), bloc20 = new Image(),
 lifeBar = new Image();
 
-var lifeCounter = 3;
+let lifeCounter = 3;
 
-var sndLevel = new Audio("sound/Whirlwind.mp3");
-var levelmusic = 1;
+let sndLevel = new Audio("sound/Whirlwind.mp3");
+let levelmusic = 1;
 
 
 //link images to var
@@ -77,28 +77,28 @@ bloc20.src = "img/skull.png";
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
-	var canvas = document.getElementById("canvas");
-	//donner le context, ici 2d
-	var context = canvas.getContext("2d");
+	const CANVAS = document.getElementById("canvas");
+	//donner le CONTEXT, ici 2d
+	const CONTEXT = CANVAS.getContext("2d");
 
 	// Déclaration des variables objets
 
-	var b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
+	let b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
 	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {}, b18 = {}, b19 = {}, b20 = {},
 	lB = {};
 
-  var W = 512;
-	var H = 256;
-	var mouseX;
-	var mouseY;
-	var p1 = {};
+  const W = 512;
+	const H = 256;
+	let mouseX;
+	let mouseY;
+	let p1 = {};
 
     init();
 
     function init() {
 
-			canvas.width = W;
-			canvas.height = H;
+			CANVAS.width = W;
+			CANVAS.height = H;
 
 
 			p1.h = joueur.height;
@@ -957,29 +957,29 @@ window.onload = function() {
 				}
 
 		function render() {
-			context.drawImage(background, 0, 0);
-			context.drawImage(joueur, mouseX, mouseY);
-			context.drawImage(lifeBar, lB.x, lB.y);
-			context.drawImage(bloc1, b1.x, b1.y);
-			context.drawImage(bloc2, b2.x, b2.y);
-			context.drawImage(bloc3, b3.x, b3.y);
-			context.drawImage(bloc4, b4.x, b4.y);
-			context.drawImage(bloc5, b5.x, b5.y);
-			context.drawImage(bloc6, b6.x, b6.y);
-			context.drawImage(bloc7, b7.x, b7.y);
-			context.drawImage(bloc8, b8.x, b8.y);
-			context.drawImage(bloc9, b9.x, b9.y);
-			context.drawImage(bloc10, b10.x, b10.y);
-			context.drawImage(bloc11, b11.x, b11.y);
-			context.drawImage(bloc12, b12.x, b12.y);
-			context.drawImage(bloc13, b13.x, b13.y);
-			context.drawImage(bloc14, b14.x, b14.y);
-			context.drawImage(bloc15, b15.x, b15.y);
-			context.drawImage(bloc16, b16.x, b16.y);
-			context.drawImage(bloc17, b17.x, b17.y);
-			context.drawImage(bloc18, b18.x, b18.y);
-			context.drawImage(bloc19, b19.x, b19.y);
-			context.drawImage(bloc20, b20.x, b20.y);
+			CONTEXT.drawImage(background, 0, 0);
+			CONTEXT.drawImage(joueur, mouseX, mouseY);
+			CONTEXT.drawImage(lifeBar, lB.x, lB.y);
+			CONTEXT.drawImage(bloc1, b1.x, b1.y);
+			CONTEXT.drawImage(bloc2, b2.x, b2.y);
+			CONTEXT.drawImage(bloc3, b3.x, b3.y);
+			CONTEXT.drawImage(bloc4, b4.x, b4.y);
+			CONTEXT.drawImage(bloc5, b5.x, b5.y);
+			CONTEXT.drawImage(bloc6, b6.x, b6.y);
+			CONTEXT.drawImage(bloc7, b7.x, b7.y);
+			CONTEXT.drawImage(bloc8, b8.x, b8.y);
+			CONTEXT.drawImage(bloc9, b9.x, b9.y);
+			CONTEXT.drawImage(bloc10, b10.x, b10.y);
+			CONTEXT.drawImage(bloc11, b11.x, b11.y);
+			CONTEXT.drawImage(bloc12, b12.x, b12.y);
+			CONTEXT.drawImage(bloc13, b13.x, b13.y);
+			CONTEXT.drawImage(bloc14, b14.x, b14.y);
+			CONTEXT.drawImage(bloc15, b15.x, b15.y);
+			CONTEXT.drawImage(bloc16, b16.x, b16.y);
+			CONTEXT.drawImage(bloc17, b17.x, b17.y);
+			CONTEXT.drawImage(bloc18, b18.x, b18.y);
+			CONTEXT.drawImage(bloc19, b19.x, b19.y);
+			CONTEXT.drawImage(bloc20, b20.x, b20.y);
 		}
 
 		function collisions(A,B) {
