@@ -95,6 +95,106 @@ window.onload = function() {
 
     init();
 
+    function initb1() {
+    	b1.y = -20;
+		b1.x = -20 - bloc1.width;
+    }
+
+	function initb2() {
+		b2.y = -20;
+		b2.x = 532;
+	}
+
+	function initb3() {
+		b3.y = 256 / 3;
+		b3.x = -20 - bloc3.width;
+	}
+
+	function initb4() {
+		b4.y = 276;
+		b4.x = 512 / 3;
+	}
+
+	function initb5() {
+		b5.y = 276;
+		b5.x = 104;
+	}
+
+	function initb6() {
+		b6.y = 276;
+		b6.x = 276;
+	}
+
+	function initb7() {
+		b7.y = 276;
+		b7.x = 408;
+	}
+
+	function initb8() {
+		b8.y = 276;
+		b8.x = -20 - bloc8.width;
+	}
+
+	function initb9() {
+		b9.y = -20;
+		b9.x = -20 - bloc9.width;
+	}
+
+	function initb10() {
+		b10.y = (256 / 3) * 2;
+		b10.x = -20 - bloc10.width;
+	}
+
+	function initb11() {
+		b11.y = -20 - bloc11.height;
+		b11.x = (512 / 3) * 2;
+	}
+
+	function initb12() {
+		b12.y = -20 - bloc12.height;
+		b12.x = 0;
+	}
+
+	function initb13() {
+		b13.y = 256 / 3;
+		b13.x = -20 - bloc13.width;
+	}
+
+	function initb14() {
+		b14.y = (256 / 3) * 2;
+		b14.x = -20 - bloc14.width;
+	}
+
+	function initb15() {
+		b15.y = -20 - bloc15.height;
+		b15.x = 51;
+	}
+
+	function initb16() {
+		b16.y = -20 - bloc16.height;
+		b16.x = 461;
+	}
+
+	function initb17() {
+		b17.y = -20 - bloc17.height;
+		b17.x = 205;
+	}
+
+	function initb18() {
+		b18.y = -20 - bloc18.height;
+		b18.x = 411;
+	}
+
+	function initb19() {
+		b19.y = 200;
+		b19.x = -20 - bloc19.width;
+	}
+
+	function initb20() {
+		b20.y = 276;
+		b20.x = 532;
+	}
+
     function init() {
 
 			CANVAS.width = W;
@@ -108,103 +208,103 @@ window.onload = function() {
 
 			b1.h = bloc1.height;
 			b1.w = bloc1.width;
-			b1.y = 0;
-			b1.x = -bloc1.width;
+			b1.y = -20;
+			b1.x = -20 - bloc1.width;
 
 			b2.h = bloc2.height;
 			b2.w = bloc2.width;
-			b2.y = 0;
-			b2.x = 512;
+			b2.y = -20;
+			b2.x = 532;
 
 			b3.h = bloc3.height;
 			b3.w = bloc3.width;
 			b3.y = 256 / 3;
-			b3.x = -bloc3.width;
+			b3.x = -20 - bloc3.width;
 
 			b4.h = bloc4.height;
 			b4.w = bloc4.width;
-			b4.y = 256;
+			b4.y = 276;
 			b4.x = 512 / 3;
 
 			b5.h = bloc5.height;
 			b5.w = bloc5.width;
-			b5.y = 256;
+			b5.y = 276;
 			b5.x = 104;
 
 			b6.h = bloc6.height;
 			b6.w = bloc6.width;
-			b6.y = 256;
-			b6.x = 256;
+			b6.y = 276;
+			b6.x = 276;
 
 			b7.h = bloc7.height;
 			b7.w = bloc7.width;
-			b7.y = 256;
+			b7.y = 276;
 			b7.x = 408;
 
 			b8.h = bloc8.height;
 			b8.w = bloc8.width;
-			b8.y = 256;
-			b8.x = -bloc8.width;
+			b8.y = 276;
+			b8.x = -20 - bloc8.width;
 
 			b9.h = bloc9.height;
 			b9.w = bloc9.width;
-			b9.y = 0;
-			b9.x = -bloc9.width;
+			b9.y = -20;
+			b9.x = -20 - bloc9.width;
 
 			b10.h = bloc10.height;
 			b10.w = bloc10.width;
 			b10.y = (256 / 3) * 2;
-			b10.x = -bloc10.width;
+			b10.x = -20 - bloc10.width;
 
 			b11.h = bloc11.height;
 			b11.w = bloc11.width;
-			b11.y = -(bloc11.height);
+			b11.y = -20 - bloc11.height;
 			b11.x = (512 / 3) * 2;
 
 			b12.h = bloc12.height;
 			b12.w = bloc12.width;
-			b12.y = -(bloc12.height);
+			b12.y = -20 - bloc12.height;
 			b12.x = 0;
 
 			b13.h = bloc13.height;
 			b13.w = bloc13.width;
 			b13.y = 256 / 3;
-			b13.x = -bloc13.width;
+			b13.x = -20 - bloc13.width;
 
 			b14.h = bloc14.height;
 			b14.w = bloc14.width;
 			b14.y = (256 / 3) * 2;
-			b14.x = -bloc14.width;
+			b14.x = -20 - bloc14.width;
 
 			b15.h = bloc15.height;
 			b15.w = bloc15.width;
-			b15.y = -(bloc15.height);
+			b15.y = -20 - bloc15.height;
 			b15.x = 51;
 
 			b16.h = bloc16.height;
 			b16.w = bloc16.width;
-			b16.y = -(bloc16.height);
+			b16.y = -20 - bloc16.height;
 			b16.x = 461;
 
 			b17.h = bloc17.height;
 			b17.w = bloc17.width;
-			b17.y = -(bloc17.height);
+			b17.y = -20 - bloc17.height;
 			b17.x = 205;
 
 			b18.h = bloc18.height;
 			b18.w = bloc18.width;
-			b18.y = -(bloc17.height);
+			b18.y = -20 - bloc18.height;
 			b18.x = 411;
 
 			b19.h = bloc19.height;
 			b19.w = bloc19.width;
 			b19.y = 200;
-			b19.x = -(bloc19.width);
+			b19.x = -20 - bloc19.width;
 
 			b20.h = bloc20.height;
 			b20.w = bloc20.width;
-			b20.y = 256;
-			b20.x = 512;
+			b20.y = 276;
+			b20.x = 532;
 
 			lB.h = lifeBar.height;
 			lB.w = lifeBar.width;
@@ -292,10 +392,8 @@ window.onload = function() {
 					b2.x -= 2 * counterP1 * counterMegaLoop;
 					b2.y += 1 * counterP1 * counterMegaLoop;
 					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
-						b1.y = 0;
-						b1.x = -bloc1.width;
-						b2.x = 512;
-						b2.y = 0;
+						initb1();
+						initb2();
 						b1EndP1 = true;
 						b2EndP1 = true;
 						b3EndP1 = false;
@@ -305,7 +403,7 @@ window.onload = function() {
 				if(!b3EndP1){
 					b3.x += 10 * counterP1 * counterMegaLoop;
 					if(b3.x > 530){
-						b3.x = -bloc3.width;
+						initb3();
 						b3EndP1 = true;
 						b12EndP1 = false;
 					}
@@ -314,7 +412,7 @@ window.onload = function() {
 				if(!b12EndP1){
 					b12.y += 5 * counterP1 * counterMegaLoop;
 					if(b12.y > 270){
-						b12.y = -bloc12.height;
+						initb12();
 						b12EndP1 = true;
 						b11EndP1 = false;
 					}
@@ -323,7 +421,7 @@ window.onload = function() {
 				if(!b11EndP1){
 					b11.y += 5* counterP1 * counterMegaLoop;
 					if(b11.y > 270){
-						b11.y = -bloc11.height;
+						initb11();
 						b11EndP1 = true;
 						b4EndP1 = false;
 					}
@@ -332,7 +430,7 @@ window.onload = function() {
 				if(!b4EndP1){
 					b4.y -= 5 * counterP1 * counterMegaLoop;
 					if(b4.y < -30){
-						b4.y = 256;
+						initb4();
 						b4EndP1 = true;
 						b20EndP1 = false;
 					}
@@ -344,8 +442,7 @@ window.onload = function() {
 					b20.x -= 2 * counterP1 * counterMegaLoop;
 					b20.y -= counterP1 * counterMegaLoop + (10 * Math.sin(curve));
 					if(b20.y < 0 || b20.x < 0){
-						b20.y = 256;
-						b20.x = 512;
+						initb20();
 						b20EndP1 = true;
 						b15EndP1 = false;
 						b18EndP1 = false;
@@ -356,8 +453,8 @@ window.onload = function() {
 					b15.y += 2 * counterP1 * counterMegaLoop;
 					b18.y += 2 * counterP1 * counterMegaLoop;
 					if(b15.y > 270 || b18.y > 270){
-						b15.y = -bloc15.height;
-						b18.y = -bloc18.height;
+						initb15();
+						initb18();
 						b15EndP1 = true;
 						b18EndP1 = true;
 						b17EndP1 = false;
@@ -369,8 +466,8 @@ window.onload = function() {
 					b16.y += 2 * counterP1 * counterMegaLoop;
 					b17.y += 2 * counterP1 * counterMegaLoop;
 					if(b16.y > 270 || b17.y > 270){
-						b16.y = -bloc16.height;
-						b17.y = -bloc17.height;
+						initb16();
+						initb17();
 						b16EndP1 = true;
 						b17EndP1 = true;
 						b5EndP1 = false;
@@ -384,9 +481,9 @@ window.onload = function() {
 					b6.y -= 2 * counterP1 * counterMegaLoop;
 					b7.y -= 2 * counterP1 * counterMegaLoop;
 					if(b5.y < 0 || b6.y < 0 || b7.y < 0){
-						b5.y = 256;
-						b6.y = 256;
-						b7.y = 256;
+						initb5();
+						initb6();
+						initb7();
 						b5EndP1 = true;
 						b6EndP1 = true;
 						b7EndP1 = true;
@@ -397,7 +494,7 @@ window.onload = function() {
 				if(!b10EndP1){
 					b10.x += 10 * counterP1 * counterMegaLoop;
 					if(b10.x > 512){
-						b10.y = 256;
+						initb10();
 						b10EndP1 = true;
 						b9EndP1 = false;
 					}
@@ -406,7 +503,7 @@ window.onload = function() {
 				if(!b9EndP1){
 					b9.x += 10 * counterP1 * counterMegaLoop;
 					if(b9.x > 512){
-						b9.y = 256;
+						initb9();
 						b9EndP1 = true;
 						b19EndP1 = false;
 					}
@@ -418,8 +515,7 @@ window.onload = function() {
 					b19.x += 2 * counterP1 * counterMegaLoop;
 					b19.y += 10 * Math.sin(curve) * counterP1 * counterMegaLoop;
 					if(b19.x > 512){
-						b19.y = 200;
-						b19.x = -(bloc19.width);
+						initb19();
 						b19EndP1 = true;
 						b8EndP1 = false;
 						b13EndP1 = false;
@@ -433,10 +529,9 @@ window.onload = function() {
 					b13.x += 2 * counterP1 * counterMegaLoop;
 					b14.x += 2 * counterP1 * counterMegaLoop;
 					if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
-						b8.x = -bloc8.width;
-						b8.y = 256;
-						b13.x = -bloc13.width;
-						b14.x = -bloc14.width;
+						initb8();
+						initb13();
+						initb14();
 						b8EndP1 = true;
 						b13EndP1 = true;
 						b14EndP1 = true;
@@ -463,9 +558,9 @@ window.onload = function() {
 					b13.x += 2 * counterP2 * counterMegaLoop;
 					b14.x += 2 * counterP2 * counterMegaLoop;
 					if(b13.x > 512 || b14.x > 512){
-						b6.y = 256;
-						b13.x = -bloc13.width;
-						b14.x = -bloc14.width;
+						initb6();
+						initb13();
+						initb14();
 						b6EndP2 = true;
 						b13EndP2 = true;
 						b14EndP2 = true;
@@ -480,9 +575,9 @@ window.onload = function() {
 					b5.y -= 2 * counterP2 * counterMegaLoop;
 					b7.y -= 2 * counterP2 * counterMegaLoop;
 					if(b5.y < 0 || b7.y < 0){
-						b4.y = 256;
-						b5.y = 256;
-						b7.y = 256;
+						initb4();
+						initb5();
+						initb7();
 						b4EndP2 = true;
 						b5EndP2 = true;
 						b7EndP2 = true;
@@ -499,10 +594,9 @@ window.onload = function() {
 					b8.x += 2 * counterP2 * counterMegaLoop;
 					b8.y -= 1 * counterP2 * counterMegaLoop;
 					if((b1.x > 512 || b1.y > 256) && b3.x > 530 && ( b8.x > 512 || b8.y < 0 )){
-						b1.x = 0;
-						b1.y = -b1.width;
-						b3.x = -bloc3.width;
-						b8.x = -bloc8.width;
+						initb1();
+						initb3();
+						initb8();
 						b8.y = 256;
 						b1EndP2 = true;
 						b3EndP2 = true;
@@ -521,10 +615,9 @@ window.onload = function() {
 					b20.x -= 2 * counterP2 * counterMegaLoop;
 					b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
 					if(b11.y > 270 && b12.y > 270 && ( b20.y < 0 || b20.x < 0 )){
-						b11.y = -bloc11.height;
-						b12.y = -bloc12.height;
-						b20.y = 256;
-						b20.x = 512;
+						initb11();
+						initb12();
+						initb20();
 						b11EndP2 = true;
 						b12EndP2 = true;
 						b20EndP2 = true;
@@ -546,12 +639,11 @@ window.onload = function() {
 					b19.x += 2 * counterP2 * counterMegaLoop;
 					b19.y += 10 * Math.sin(curve) * counterP2 * counterMegaLoop;
 					if(b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
-						b15.y = -bloc15.height;
-						b16.y = -bloc16.height;
-						b17.y = -bloc17.height;
-						b18.y = -bloc18.height;
-						b19.y = 200;
-						b19.x = -(bloc19.width);
+						initb15();
+						initb16();
+						initb17();
+						initb18();
+						initb19();
 						b15EndP2 = true;
 						b16EndP2 = true;
 						b17EndP2 = true;
@@ -593,16 +685,12 @@ window.onload = function() {
 					b20.x -= 2 * counterP3 * counterMegaLoop;
 					b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
 					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 || b20.x < 0)){
-						b1.x = 0;
-						b1.y = -b1.width;
-						b2.x = 512;
-						b2.y = 0;
-						b3.x = -bloc3.width;
-						b4.y = 256;
-						b8.x = -bloc8.width;
-						b8.y = 256;
-						b20.y = 256;
-						b20.x = 512;
+						initb1();
+						initb2();
+						initb3();
+						initb4();
+						initb8();
+						initb20();
 						b1EndP3 = true;
 						b2EndP3 = true;
 						b3EndP3 = true;
@@ -622,10 +710,10 @@ window.onload = function() {
 					b11.y += 5 * counterP3 * counterMegaLoop;
 					b12.y += 5 * counterP3 * counterMegaLoop;
 					if(b9.x > 512 && b10.x > 512 && b11.y > 270 && b12.y > 270){
-						b9.y = 256;
-						b10.y = 256;
-						b11.y = -bloc11.height;
-						b12.y = -bloc12.height;
+						initb9();
+						initb10();
+						initb11();
+						initb12();
 						b9EndP3 = true;
 						b10EndP3 = true;
 						b11EndP3 = true;
@@ -654,15 +742,14 @@ window.onload = function() {
 					b19.x += 2 * counterP3 * counterMegaLoop;
 					b19.y += 10 * Math.sin(curve);
 					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
-						b5.y = 256;
-						b6.y = 256;
-						b7.y = 256;
-						b15.y = -bloc15.height;
-						b16.y = -bloc16.height;
-						b17.y = -bloc17.height;
-						b18.y = -bloc18.height;
-						b19.y = 200;
-						b19.x = -(bloc19.width);
+						initb5();
+						initb6();
+						initb7();
+						initb15();
+						initb16();
+						initb17();
+						initb18();
+						initb19();
 						b5EndP3 = true;
 						b6EndP3 = true;
 						b7EndP3 = true;
@@ -714,17 +801,17 @@ window.onload = function() {
 					b17.y += 2 * counterMegaLoop;
 					b18.y += 2 * counterMegaLoop;
 					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b14.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
-						b5.y = 256;
-						b6.y = 256;
-						b7.y = 256;
-						b9.y = 256;
-						b10.y = 256;
-						b13.x = -bloc13.width;
-						b14.x = -bloc14.width;
-						b15.y = -bloc15.height;
-						b16.y = -bloc16.height;
-						b17.y = -bloc17.height;
-						b18.y = -bloc18.height;
+						initb5();
+						initb6();
+						initb7();
+						initb9();
+						initb10();
+						initb13();
+						initb14();
+						initb15();
+						initb16();
+						initb17();
+						initb18();
 						b5EndP4 = true;
 						b6EndP4 = true;
 						b7EndP4 = true;
@@ -759,16 +846,12 @@ window.onload = function() {
 					b20.x -= 2 * counterMegaLoop;
 					b20.y -= counterMegaLoop * (10 * Math.sin(curve));
 					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && ( b8.x > 512 || b8.y < 0 ) && b11.y > 270 && b12.y > 270 && (b20.y < 0 || b20.x < 0)){
-						b1.x = 0;
-						b1.y = -b1.width;
-						b2.x = 512;
-						b2.y = 0;
-						b8.x = -bloc8.width;
-						b8.y = 256;
-						b11.y = -bloc11.height;
-						b12.y = -bloc12.height;
-						b20.y = 256;
-						b20.x = 512;
+						initb1();
+						initb2();
+						initb8();
+						initb11();
+						initb12();
+						initb20();
 						b1EndP4 = true;
 						b2EndP4 = true;
 						b8EndP4 = true;
@@ -789,10 +872,9 @@ window.onload = function() {
 					b19.x += 2 * counterMegaLoop;
 					b19.y += 10 * Math.sin(curve) * counterMegaLoop;
 					if(b3.x > 530 && b4.y < -30 && b19.x > 512){
-						b3.x = -bloc3.width;
-						b4.y = 256;
-						b19.y = 200;
-						b19.x = -(bloc19.width);
+						initb3();
+						initb4();
+						initb19();
 						if(counterMegaLoop === 2){
 							b3EndP4 = true;
 							b4EndP4 = true;
