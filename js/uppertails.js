@@ -136,7 +136,7 @@ window.onload = function() {
 	}
 
 	function initb9() {
-		b9.y = -20;
+		b9.y = 0;
 		b9.x = -20 - bloc9.width;
 	}
 
@@ -195,6 +195,60 @@ window.onload = function() {
 		b20.x = 532;
 	}
 
+	function curl() {
+		curve += 0.5;
+		if(curve > 180) curve = 0;
+	}
+
+	function travelArrowLeft(bloc) {
+		bloc.x += 2;
+	}
+
+	function travelArrowTop(bloc) {
+		bloc.y += 2;
+	}
+
+	function travelArrowBottom(bloc) {
+		bloc.y -= 2;
+	}
+
+	function travelLaserLeft(bloc) {
+		bloc.x += 10;
+	}
+
+	function travelLaserTop(bloc) {
+		bloc.y += 5;
+	}
+
+	function travelLaserBottom(bloc) {
+		bloc.y -= 5;
+	}
+
+	function travelSkullTL() {
+		b1.x += 2;
+		b1.y += 1;
+	}
+
+	function travelSkullTR() {
+		b2.x -= 2;
+		b2.y += 1;
+	}
+
+	function travelSkullBottomLeft() {
+		b8.x += 2;
+		b8.y -= 1;
+	}
+
+	function travelCurlSkullLeft() {
+		b19.x += 2;
+		b19.y += 10 * Math.sin(curve);
+	}
+
+	function travelCurlSkullBR() {
+		b20.x -= 2;
+		b20.y -= 1 + (10 * Math.sin(curve));
+	}
+
     function init() {
 
 			CANVAS.width = W;
@@ -248,7 +302,7 @@ window.onload = function() {
 
 			b9.h = bloc9.height;
 			b9.w = bloc9.width;
-			b9.y = -20;
+			b9.y = 0;
 			b9.x = -20 - bloc9.width;
 
 			b10.h = bloc10.height;
@@ -320,6 +374,8 @@ window.onload = function() {
     }
     function main() {
 
+    	curl();
+
 		sndLevel.addEventListener('ended', function() {
 					this.currentTime = 0;
 					this.play();
@@ -386,11 +442,8 @@ window.onload = function() {
 						sndLevel.play();
 						levelmusic = 0;
 					}
-
-					b1.x += 2 * counterP1 * counterMegaLoop;
-					b1.y += 1 * counterP1 * counterMegaLoop;
-					b2.x -= 2 * counterP1 * counterMegaLoop;
-					b2.y += 1 * counterP1 * counterMegaLoop;
+					travelSkullTL();
+					travelSkullTR();
 					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
 						initb1();
 						initb2();
@@ -401,7 +454,7 @@ window.onload = function() {
 				}
 
 				if(!b3EndP1){
-					b3.x += 10 * counterP1 * counterMegaLoop;
+					travelLaserLeft(b3);
 					if(b3.x > 530){
 						initb3();
 						b3EndP1 = true;
@@ -410,7 +463,7 @@ window.onload = function() {
 				}
 
 				if(!b12EndP1){
-					b12.y += 5 * counterP1 * counterMegaLoop;
+					travelLaserTop(b12);
 					if(b12.y > 270){
 						initb12();
 						b12EndP1 = true;
@@ -419,7 +472,7 @@ window.onload = function() {
 				}
 
 				if(!b11EndP1){
-					b11.y += 5* counterP1 * counterMegaLoop;
+					travelLaserTop(b11);
 					if(b11.y > 270){
 						initb11();
 						b11EndP1 = true;
@@ -428,7 +481,7 @@ window.onload = function() {
 				}
 
 				if(!b4EndP1){
-					b4.y -= 5 * counterP1 * counterMegaLoop;
+					travelLaserBottom(b4);
 					if(b4.y < -30){
 						initb4();
 						b4EndP1 = true;
@@ -437,10 +490,7 @@ window.onload = function() {
 				}
 
 				if(!b20EndP1){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b20.x -= 2 * counterP1 * counterMegaLoop;
-					b20.y -= counterP1 * counterMegaLoop + (10 * Math.sin(curve));
+					travelCurlSkullBR();
 					if(b20.y < 0 || b20.x < 0){
 						initb20();
 						b20EndP1 = true;
@@ -450,8 +500,8 @@ window.onload = function() {
 				}
 
 				if(!b15EndP1 && !b18EndP1){
-					b15.y += 2 * counterP1 * counterMegaLoop;
-					b18.y += 2 * counterP1 * counterMegaLoop;
+					travelArrowTop(b15);
+					travelArrowTop(b18);
 					if(b15.y > 270 || b18.y > 270){
 						initb15();
 						initb18();
@@ -463,8 +513,8 @@ window.onload = function() {
 				}
 
 				if(!b16EndP1 && !b17EndP1){
-					b16.y += 2 * counterP1 * counterMegaLoop;
-					b17.y += 2 * counterP1 * counterMegaLoop;
+					travelArrowTop(b16);
+					travelArrowTop(b17);
 					if(b16.y > 270 || b17.y > 270){
 						initb16();
 						initb17();
@@ -477,9 +527,9 @@ window.onload = function() {
 				}
 
 				if(!b5EndP1 && !b6EndP1 && !b7EndP1){
-					b5.y -= 2 * counterP1 * counterMegaLoop;
-					b6.y -= 2 * counterP1 * counterMegaLoop;
-					b7.y -= 2 * counterP1 * counterMegaLoop;
+					travelArrowBottom(b5);
+					travelArrowBottom(b6);
+					travelArrowBottom(b7);
 					if(b5.y < 0 || b6.y < 0 || b7.y < 0){
 						initb5();
 						initb6();
@@ -492,7 +542,7 @@ window.onload = function() {
 				}
 
 				if(!b10EndP1){
-					b10.x += 10 * counterP1 * counterMegaLoop;
+					travelLaserLeft(b10);
 					if(b10.x > 512){
 						initb10();
 						b10EndP1 = true;
@@ -501,7 +551,7 @@ window.onload = function() {
 				}
 
 				if(!b9EndP1){
-					b9.x += 10 * counterP1 * counterMegaLoop;
+					travelLaserLeft(b9);
 					if(b9.x > 512){
 						initb9();
 						b9EndP1 = true;
@@ -510,10 +560,7 @@ window.onload = function() {
 				}
 
 				if(!b19EndP1){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b19.x += 2 * counterP1 * counterMegaLoop;
-					b19.y += 10 * Math.sin(curve) * counterP1 * counterMegaLoop;
+					travelCurlSkullLeft();
 					if(b19.x > 512){
 						initb19();
 						b19EndP1 = true;
@@ -524,10 +571,9 @@ window.onload = function() {
 				}
 
 				if(!b8EndP1 && !b13EndP1 && !b14EndP1){
-					b8.x += 2 * counterP1 * counterMegaLoop;
-					b8.y -= 1 * counterP1 * counterMegaLoop;
-					b13.x += 2 * counterP1 * counterMegaLoop;
-					b14.x += 2 * counterP1 * counterMegaLoop;
+					travelSkullBottomLeft();
+					travelArrowLeft(b13);
+					travelArrowLeft(b14);
 					if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
 						initb8();
 						initb13();
@@ -542,7 +588,7 @@ window.onload = function() {
 						Phase1 = false;
 						Phase2 = true;
 						}
-						if(counterP1 === 1) {
+						else{
 							b1EndP1 = false;
 							b2EndP1 = false;
 							counterP1++;
@@ -554,9 +600,9 @@ window.onload = function() {
 			if(Phase2) {
 
 				if(!b6EndP2 && !b13EndP2 && !b14EndP2){
-					b6.y -= 2 * counterP2 * counterMegaLoop;
-					b13.x += 2 * counterP2 * counterMegaLoop;
-					b14.x += 2 * counterP2 * counterMegaLoop;
+					travelArrowBottom(b6);
+					travelArrowLeft(b13);
+					travelArrowLeft(b14);
 					if(b13.x > 512 || b14.x > 512){
 						initb6();
 						initb13();
@@ -571,9 +617,9 @@ window.onload = function() {
 				}
 
 				if(!b4EndP2 && !b5EndP2 && !b7EndP2){
-					b4.y -= 5 * counterP2 * counterMegaLoop;
-					b5.y -= 2 * counterP2 * counterMegaLoop;
-					b7.y -= 2 * counterP2 * counterMegaLoop;
+					travelLaserBottom(b4);
+					travelArrowBottom(b5);
+					travelArrowBottom(b7);
 					if(b5.y < 0 || b7.y < 0){
 						initb4();
 						initb5();
@@ -588,11 +634,9 @@ window.onload = function() {
 				}
 
 				if(!b1EndP2 && !b3EndP2 && !b8EndP2){
-					b1.x += 2 * counterP2 * counterMegaLoop;
-					b1.y += 1 * counterP2 * counterMegaLoop;
-					b3.x += 10 * counterP2 * counterMegaLoop;
-					b8.x += 2 * counterP2 * counterMegaLoop;
-					b8.y -= 1 * counterP2 * counterMegaLoop;
+					travelSkullTL();
+					travelSkullBottomLeft();
+					travelLaserLeft(b3);
 					if((b1.x > 512 || b1.y > 256) && b3.x > 530 && ( b8.x > 512 || b8.y < 0 )){
 						initb1();
 						initb3();
@@ -608,12 +652,9 @@ window.onload = function() {
 				}
 
 				if(!b11EndP2 && !b12EndP2 && !b20EndP2){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b11.y += 5 * counterP2 * counterMegaLoop;
-					b12.y += 5 * counterP2 * counterMegaLoop;
-					b20.x -= 2 * counterP2 * counterMegaLoop;
-					b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
+					travelLaserTop(b11);
+					travelLaserTop(b12);
+					travelCurlSkullBR();
 					if(b11.y > 270 && b12.y > 270 && ( b20.y < 0 || b20.x < 0 )){
 						initb11();
 						initb12();
@@ -630,14 +671,11 @@ window.onload = function() {
 				}
 
 				if(!b15EndP2 && !b16EndP2 && !b17EndP2 && !b18EndP2 && !b19EndP2){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b15.y += 2 * counterP2 * counterMegaLoop;
-					b16.y += 2 * counterP2 * counterMegaLoop;
-					b17.y += 2 * counterP2 * counterMegaLoop;
-					b18.y += 2 * counterP2 * counterMegaLoop;
-					b19.x += 2 * counterP2 * counterMegaLoop;
-					b19.y += 10 * Math.sin(curve) * counterP2 * counterMegaLoop;
+					travelArrowTop(b15);
+					travelArrowTop(b16);
+					travelArrowTop(b17);
+					travelArrowTop(b18);
+					travelCurlSkullLeft();
 					if(b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
 						initb15();
 						initb16();
@@ -659,7 +697,7 @@ window.onload = function() {
 							Phase2 = false;
 							Phase3 = true;
 						}
-						if(counterP2 === 1){
+						else{
 							b6EndP2 = false;
 							b13EndP2 = false;
 							b14EndP2 = false;
@@ -672,19 +710,13 @@ window.onload = function() {
 			if (Phase3) {
 
 				if(!b1EndP3 && !b2EndP3 && !b3EndP3 && !b4EndP3 && !b8EndP3 && !b20EndP3){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b1.x += 2 * counterP3 * counterMegaLoop;
-					b1.y += 1 * counterP3 * counterMegaLoop;
-					b2.x -= 2 * counterP3 * counterMegaLoop;
-					b2.y += 1 * counterP3 * counterMegaLoop;
-					b3.x += 10 * counterP3 * counterMegaLoop;
-					b4.y -= 5 * counterP3 * counterMegaLoop;
-					b8.x += 2 * counterP3 * counterMegaLoop;
-					b8.y -= 1 * counterP3 * counterMegaLoop;
-					b20.x -= 2 * counterP3 * counterMegaLoop;
-					b20.y -= counterP2 * counterMegaLoop + (10 * Math.sin(curve));
-					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 || b20.x < 0)){
+					travelSkullTL();
+					travelSkullTR();
+					travelLaserLeft(b3);
+					travelLaserBottom(b4);
+					travelSkullBottomLeft();
+					travelCurlSkullBR();
+					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 && b20.x < 0)){
 						initb1();
 						initb2();
 						initb3();
@@ -705,10 +737,10 @@ window.onload = function() {
 				}
 
 				if(!b9EndP3 && !b10EndP3 && !b11EndP3 && !b12EndP3){
-					b9.x += 10 * counterP3 * counterMegaLoop;
-					b10.x += 10 * counterP3 * counterMegaLoop;
-					b11.y += 5 * counterP3 * counterMegaLoop;
-					b12.y += 5 * counterP3 * counterMegaLoop;
+					travelLaserLeft(b9);
+					travelLaserLeft(b10);
+					travelLaserTop(b11);
+					travelLaserTop(b12);
 					if(b9.x > 512 && b10.x > 512 && b11.y > 270 && b12.y > 270){
 						initb9();
 						initb10();
@@ -730,17 +762,14 @@ window.onload = function() {
 				}
 
 				if(!b5EndP3 && !b6EndP3 && !b7EndP3 && !b15EndP3 && !b16EndP3 && !b17EndP3 && !b18EndP3 && !b19EndP3){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b5.y -= 2 * counterP3 * counterMegaLoop;
-					b6.y -= 2 * counterP3 * counterMegaLoop;
-					b7.y -= 2 * counterP3 * counterMegaLoop;
-					b15.y += 2 * counterP3 * counterMegaLoop;
-					b16.y += 2 * counterP3 * counterMegaLoop;
-					b17.y += 2 * counterP3 * counterMegaLoop;
-					b18.y += 2 * counterP3 * counterMegaLoop;
-					b19.x += 2 * counterP3 * counterMegaLoop;
-					b19.y += 10 * Math.sin(curve);
+					travelArrowBottom(b5);
+					travelArrowBottom(b6);
+					travelArrowBottom(b7);
+					travelArrowTop(b15);
+					travelArrowTop(b16);
+					travelArrowTop(b17);
+					travelArrowTop(b18);
+					travelCurlSkullLeft();
 					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
 						initb5();
 						initb6();
@@ -765,7 +794,6 @@ window.onload = function() {
 							b9EndP4 = false;
 							b10EndP4 = false;
 							b13EndP4 = false;
-							b14EndP4 = false;
 							b15EndP4 = false;
 							b16EndP4 = false;
 							b17EndP4 = false;
@@ -773,7 +801,7 @@ window.onload = function() {
 							Phase3 = false;
 							Phase4 = true;
 						}
-						if(counterP3 < 3){
+						else{
 							b1EndP3 = false;
 							b2EndP3 = false;
 							b3EndP3 = false;
@@ -788,26 +816,24 @@ window.onload = function() {
 
 			if(Phase4){
 
-				if(!b5EndP4 && !b6EndP4 && !b7EndP4 && !b9EndP4 && !b10EndP4 && !b13EndP4 && !b14EndP4 && !b15EndP4 && !b16EndP4 && !b17EndP4 && !b18EndP4){
-					b5.y -= 2 * counterMegaLoop;
-					b6.y -= 2 * counterMegaLoop;
-					b7.y -= 2 * counterMegaLoop;
-					b9.x += 10 * counterMegaLoop;
-					b10.x += 10 * counterMegaLoop;
-					b13.x += 2 * counterMegaLoop;
-					b14.x += 2 * counterMegaLoop;
-					b15.y += 2 * counterMegaLoop;
-					b16.y += 2 * counterMegaLoop;
-					b17.y += 2 * counterMegaLoop;
-					b18.y += 2 * counterMegaLoop;
-					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b14.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
+				if(!b5EndP4 && !b6EndP4 && !b7EndP4 && !b9EndP4 && !b10EndP4 && !b13EndP4 && !b15EndP4 && !b16EndP4 && !b17EndP4 && !b18EndP4){
+					travelArrowBottom(b5);
+					travelArrowBottom(b6);
+					travelArrowBottom(b7);
+					travelLaserLeft(b9);
+					travelLaserLeft(b10);
+					travelArrowLeft(b13);
+					travelArrowTop(b15);
+					travelArrowTop(b16);
+					travelArrowTop(b17);
+					travelArrowTop(b18);
+					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
 						initb5();
 						initb6();
 						initb7();
 						initb9();
 						initb10();
 						initb13();
-						initb14();
 						initb15();
 						initb16();
 						initb17();
@@ -818,7 +844,6 @@ window.onload = function() {
 						b9EndP4 = true;
 						b10EndP4 = true;
 						b13EndP4 = true;
-						b14EndP4 = true;
 						b15EndP4 = true;
 						b16EndP4 = true;
 						b17EndP4 = true;
@@ -833,18 +858,12 @@ window.onload = function() {
 				}
 
 				if(!b1EndP4 && !b2EndP4 && !b8EndP4 && !b11EndP4 && !b12EndP4 && !b20EndP4){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b1.x += 2 * counterMegaLoop;
-					b1.y += 1 * counterMegaLoop;
-					b2.x -= 2 * counterMegaLoop;
-					b2.y += 1 * counterMegaLoop;
-					b8.x += 2 * counterMegaLoop;
-					b8.y -= 1 * counterMegaLoop;
-					b11.y += 5 * counterMegaLoop;
-					b12.y += 5 * counterMegaLoop;
-					b20.x -= 2 * counterMegaLoop;
-					b20.y -= counterMegaLoop * (10 * Math.sin(curve));
+					travelSkullTL();
+					travelSkullTR();
+					travelSkullBottomLeft();
+					travelLaserTop(b11);
+					travelLaserTop(b12);
+					travelCurlSkullBR();
 					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && ( b8.x > 512 || b8.y < 0 ) && b11.y > 270 && b12.y > 270 && (b20.y < 0 || b20.x < 0)){
 						initb1();
 						initb2();
@@ -865,12 +884,9 @@ window.onload = function() {
 				}
 
 				if(!b3EndP4 && !b4EndP4 && !b19EndP4){
-					curve += 0.5;
-					if(curve > 180) curve = 0;
-					b3.x += 10 * counterMegaLoop;
-					b4.y -= 5 * counterMegaLoop;
-					b19.x += 2 * counterMegaLoop;
-					b19.y += 10 * Math.sin(curve) * counterMegaLoop;
+					travelLaserLeft(b3);
+					travelLaserBottom(b4);
+					travelCurlSkullLeft();
 					if(b3.x > 530 && b4.y < -30 && b19.x > 512){
 						initb3();
 						initb4();
