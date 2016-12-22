@@ -349,10 +349,511 @@ window.onload = function() {
 		bloc.w = sprite.width;
 	}
 
+	function patternP1() {
+
+		if(!b1EndP1 && !b2EndP1){
+
+			if(levelmusic === 1){
+				sndLevel.play();
+				levelmusic = 0;
+			}
+			travelSkullTL();
+			travelSkullTR();
+			if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
+				initb1();
+				initb2();
+				b1EndP1 = true;
+				b2EndP1 = true;
+				b3EndP1 = false;
+			}
+		}
+
+		if(!b3EndP1){
+			travelLaserLeft(b3);
+			if(b3.x > 530){
+				initb3();
+				b3EndP1 = true;
+				b12EndP1 = false;
+			}
+		}
+
+		if(!b12EndP1){
+			travelLaserTop(b12);
+			if(b12.y > 270){
+				initb12();
+				b12EndP1 = true;
+				b11EndP1 = false;
+			}
+		}
+
+		if(!b11EndP1){
+			travelLaserTop(b11);
+			if(b11.y > 270){
+				initb11();
+				b11EndP1 = true;
+				b4EndP1 = false;
+			}
+		}
+
+		if(!b4EndP1){
+			travelLaserBottom(b4);
+			if(b4.y < -30){
+				initb4();
+				b4EndP1 = true;
+				b20EndP1 = false;
+			}
+		}
+
+		if(!b20EndP1){
+			travelCurlSkullBR();
+			if(b20.y < 0 || b20.x < 0){
+				initb20();
+				b20EndP1 = true;
+				b15EndP1 = false;
+				b18EndP1 = false;
+			}
+		}
+
+		if(!b15EndP1 && !b18EndP1){
+			travelArrowTop(b15);
+			travelArrowTop(b18);
+			if(b15.y > 270 || b18.y > 270){
+				initb15();
+				initb18();
+				b15EndP1 = true;
+				b18EndP1 = true;
+				b17EndP1 = false;
+				b16EndP1 = false;
+			}
+		}
+
+		if(!b16EndP1 && !b17EndP1){
+			travelArrowTop(b16);
+			travelArrowTop(b17);
+			if(b16.y > 270 || b17.y > 270){
+				initb16();
+				initb17();
+				b16EndP1 = true;
+				b17EndP1 = true;
+				b5EndP1 = false;
+				b6EndP1 = false;
+				b7EndP1 = false;
+			}
+		}
+
+		if(!b5EndP1 && !b6EndP1 && !b7EndP1){
+			travelArrowBottom(b5);
+			travelArrowBottom(b6);
+			travelArrowBottom(b7);
+			if(b5.y < 0 || b6.y < 0 || b7.y < 0){
+				initb5();
+				initb6();
+				initb7();
+				b5EndP1 = true;
+				b6EndP1 = true;
+				b7EndP1 = true;
+				b10EndP1 = false;
+			}
+		}
+
+		if(!b10EndP1){
+			travelLaserLeft(b10);
+			if(b10.x > 512){
+				initb10();
+				b10EndP1 = true;
+				b9EndP1 = false;
+			}
+		}
+
+		if(!b9EndP1){
+			travelLaserLeft(b9);
+			if(b9.x > 512){
+				initb9();
+				b9EndP1 = true;
+				b19EndP1 = false;
+			}
+		}
+
+		if(!b19EndP1){
+			travelCurlSkullLeft();
+			if(b19.x > 512){
+				initb19();
+				b19EndP1 = true;
+				b8EndP1 = false;
+				b13EndP1 = false;
+				b14EndP1 = false;
+			}
+		}
+
+		if(!b8EndP1 && !b13EndP1 && !b14EndP1){
+			travelSkullBottomLeft();
+			travelArrowLeft(b13);
+			travelArrowLeft(b14);
+			if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
+				initb8();
+				initb13();
+				initb14();
+				b8EndP1 = true;
+				b13EndP1 = true;
+				b14EndP1 = true;
+				if(counterP1 === 2) {
+				b6EndP2 = false;
+				b13EndP2 = false;
+				b14EndP2 = false;
+				Phase1 = false;
+				Phase2 = true;
+				}
+				else{
+					b1EndP1 = false;
+					b2EndP1 = false;
+					counterP1++;
+				}
+			}
+		}
+	}
+
+	function patternP2(){
+
+		if(!b6EndP2 && !b13EndP2 && !b14EndP2){
+			travelArrowBottom(b6);
+			travelArrowLeft(b13);
+			travelArrowLeft(b14);
+			if(b13.x > 512 || b14.x > 512){
+				initb6();
+				initb13();
+				initb14();
+				b6EndP2 = true;
+				b13EndP2 = true;
+				b14EndP2 = true;
+				b4EndP2 = false;
+				b5EndP2 = false;
+				b7EndP2 = false;
+			}
+		}
+
+		if(!b4EndP2 && !b5EndP2 && !b7EndP2){
+			travelLaserBottom(b4);
+			travelArrowBottom(b5);
+			travelArrowBottom(b7);
+			if(b5.y < 0 || b7.y < 0){
+				initb4();
+				initb5();
+				initb7();
+				b4EndP2 = true;
+				b5EndP2 = true;
+				b7EndP2 = true;
+				b1EndP2 = false;
+				b3EndP2 = false;
+				b8EndP2 = false;
+			}
+		}
+
+		if(!b1EndP2 && !b3EndP2 && !b8EndP2){
+			travelSkullTL();
+			travelSkullBottomLeft();
+			travelLaserLeft(b3);
+			if((b1.x > 512 || b1.y > 256) && b3.x > 530 && ( b8.x > 512 || b8.y < 0 )){
+				initb1();
+				initb3();
+				initb8();
+				b8.y = 256;
+				b1EndP2 = true;
+				b3EndP2 = true;
+				b8EndP2 = true;
+				b11EndP2 = false;
+				b12EndP2 = false;
+				b20EndP2 = false;
+			}
+		}
+
+		if(!b11EndP2 && !b12EndP2 && !b20EndP2){
+			travelLaserTop(b11);
+			travelLaserTop(b12);
+			travelCurlSkullBR();
+			if(b11.y > 270 && b12.y > 270 && ( b20.y < 0 || b20.x < 0 )){
+				initb11();
+				initb12();
+				initb20();
+				b11EndP2 = true;
+				b12EndP2 = true;
+				b20EndP2 = true;
+				b15EndP2 = false;
+				b16EndP2 = false;
+				b17EndP2 = false;
+				b18EndP2 = false;
+				b19EndP2 = false;
+			}
+		}
+
+		if(!b15EndP2 && !b16EndP2 && !b17EndP2 && !b18EndP2 && !b19EndP2){
+			travelArrowTop(b15);
+			travelArrowTop(b16);
+			travelArrowTop(b17);
+			travelArrowTop(b18);
+			travelCurlSkullLeft();
+			if(b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
+				initb15();
+				initb16();
+				initb17();
+				initb18();
+				initb19();
+				b15EndP2 = true;
+				b16EndP2 = true;
+				b17EndP2 = true;
+				b18EndP2 = true;
+				b19EndP2 = true;
+				if(counterP2 === 2){
+					b1EndP3 = false;
+					b2EndP3 = false;
+					b3EndP3 = false;
+					b4EndP3 = false;
+					b8EndP3 = false;
+					b20EndP3 = false;
+					Phase2 = false;
+					Phase3 = true;
+				}
+				else{
+					b6EndP2 = false;
+					b13EndP2 = false;
+					b14EndP2 = false;
+					counterP2 ++;
+				}
+			}
+		}
+	}
+
+	function patternP3(){
+
+		if(!b1EndP3 && !b2EndP3 && !b3EndP3 && !b4EndP3 && !b8EndP3 && !b20EndP3){
+			travelSkullTL();
+			travelSkullTR();
+			travelLaserLeft(b3);
+			travelLaserBottom(b4);
+			travelSkullBottomLeft();
+			travelCurlSkullBR();
+			if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 && b20.x < 0)){
+				initb1();
+				initb2();
+				initb3();
+				initb4();
+				initb8();
+				initb20();
+				b1EndP3 = true;
+				b2EndP3 = true;
+				b3EndP3 = true;
+				b4EndP3 = true;
+				b8EndP3 = true;
+				b20EndP3 = true;
+				b9EndP3 = false;
+				b10EndP3 = false;
+				b11EndP3 = false;
+				b12EndP3 = false;
+			}
+		}
+
+		if(!b9EndP3 && !b10EndP3 && !b11EndP3 && !b12EndP3){
+			travelLaserLeft(b9);
+			travelLaserLeft(b10);
+			travelLaserTop(b11);
+			travelLaserTop(b12);
+			if(b9.x > 512 && b10.x > 512 && b11.y > 270 && b12.y > 270){
+				initb9();
+				initb10();
+				initb11();
+				initb12();
+				b9EndP3 = true;
+				b10EndP3 = true;
+				b11EndP3 = true;
+				b12EndP3 = true;
+				b5EndP3 = false;
+				b6EndP3 = false;
+				b7EndP3 = false;
+				b15EndP3 = false;
+				b16EndP3 = false;
+				b17EndP3 = false;
+				b18EndP3 = false;
+				b19EndP3 = false;
+			}
+		}
+
+		if(!b5EndP3 && !b6EndP3 && !b7EndP3 && !b15EndP3 && !b16EndP3 && !b17EndP3 && !b18EndP3 && !b19EndP3){
+			travelArrowBottom(b5);
+			travelArrowBottom(b6);
+			travelArrowBottom(b7);
+			travelArrowTop(b15);
+			travelArrowTop(b16);
+			travelArrowTop(b17);
+			travelArrowTop(b18);
+			travelCurlSkullLeft();
+			if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
+				initb5();
+				initb6();
+				initb7();
+				initb15();
+				initb16();
+				initb17();
+				initb18();
+				initb19();
+				b5EndP3 = true;
+				b6EndP3 = true;
+				b7EndP3 = true;
+				b15EndP3 = true;
+				b16EndP3 = true;
+				b17EndP3 = true;
+				b18EndP3 = true;
+				b19EndP3 = true;
+				if(counterP3 === 3){
+					b5EndP4 = false;
+					b6EndP4 = false;
+					b7EndP4 = false;
+					b9EndP4 = false;
+					b10EndP4 = false;
+					b13EndP4 = false;
+					b15EndP4 = false;
+					b16EndP4 = false;
+					b17EndP4 = false;
+					b18EndP4 = false;
+					Phase3 = false;
+					Phase4 = true;
+				}
+				else{
+					b1EndP3 = false;
+					b2EndP3 = false;
+					b3EndP3 = false;
+					b4EndP3 = false;
+					b8EndP3 = false;
+					b20EndP3 = false;
+					counterP3 ++;
+				}
+			}
+		}
+	}
+
+	function patternP4(){
+
+		if(!b5EndP4 && !b6EndP4 && !b7EndP4 && !b9EndP4 && !b10EndP4 && !b13EndP4 && !b15EndP4 && !b16EndP4 && !b17EndP4 && !b18EndP4){
+			travelArrowBottom(b5);
+			travelArrowBottom(b6);
+			travelArrowBottom(b7);
+			travelLaserLeft(b9);
+			travelLaserLeft(b10);
+			travelArrowLeft(b13);
+			travelArrowTop(b15);
+			travelArrowTop(b16);
+			travelArrowTop(b17);
+			travelArrowTop(b18);
+			if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
+				initb5();
+				initb6();
+				initb7();
+				initb9();
+				initb10();
+				initb13();
+				initb15();
+				initb16();
+				initb17();
+				initb18();
+				b5EndP4 = true;
+				b6EndP4 = true;
+				b7EndP4 = true;
+				b9EndP4 = true;
+				b10EndP4 = true;
+				b13EndP4 = true;
+				b15EndP4 = true;
+				b16EndP4 = true;
+				b17EndP4 = true;
+				b18EndP4 = true;
+				b1EndP4 = false;
+				b2EndP4 = false;
+				b8EndP4 = false;
+				b11EndP4 = false;
+				b12EndP4 = false;
+				b20EndP4 = false;
+			}
+		}
+
+		if(!b1EndP4 && !b2EndP4 && !b8EndP4 && !b11EndP4 && !b12EndP4 && !b20EndP4){
+			travelSkullTL();
+			travelSkullTR();
+			travelSkullBottomLeft();
+			travelLaserTop(b11);
+			travelLaserTop(b12);
+			travelCurlSkullBR();
+			if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && ( b8.x > 512 || b8.y < 0 ) && b11.y > 270 && b12.y > 270 && (b20.y < 0 || b20.x < 0)){
+				initb1();
+				initb2();
+				initb8();
+				initb11();
+				initb12();
+				initb20();
+				b1EndP4 = true;
+				b2EndP4 = true;
+				b8EndP4 = true;
+				b11EndP4 = true;
+				b12EndP4 = true;
+				b20EndP4 = true;
+				b3EndP4 = false;
+				b4EndP4 = false;
+				b19EndP4 = false;
+			}
+		}
+
+		if(!b3EndP4 && !b4EndP4 && !b19EndP4){
+			travelLaserLeft(b3);
+			travelLaserBottom(b4);
+			travelCurlSkullLeft();
+			if(b3.x > 530 && b4.y < -30 && b19.x > 512){
+				initb3();
+				initb4();
+				initb19();
+				if(counterMegaLoop === 2){
+					b3EndP4 = true;
+					b4EndP4 = true;
+					b19EndP4 = true;
+					Phase4 = false;
+				}
+				if(counterMegaLoop === 1){
+					b3EndP4 = true;
+					b4EndP4 = true;
+					b19EndP4 = true;
+					Phase4 = false;
+					counterP1 = 1;
+					counterP2 = 1;
+					counterP3 = 1;
+					b1EndP1 = false;
+					b2EndP1 = false;
+					Phase1 = true;
+					counterMegaLoop ++;
+				}
+			}
+		}
+	}
+
+	function gamePattern(){
+
+		if(Phase1) {
+			patternP1();
+		}
+		if(Phase2) {
+			patternP2();
+		}
+		if (Phase3) {
+			patternP3();
+		}
+		if(Phase4){
+			patternP4();
+		}
+
+	}
+
+	function initCanvas(){
+		CANVAS.width = W;
+		CANVAS.height = H;
+	}
+
     function init() {
 
-			CANVAS.width = W;
-			CANVAS.height = H;
+			initCanvas();
 
 			spriteDimension(p1, joueur);
 			initp1();
@@ -427,501 +928,22 @@ window.onload = function() {
 			document.body.style.cursor = 'none';
 
     }
+
     function main() {
 
-    	curl();
-    	lifeCounterEffect();
-		invulSystem();
-    	
 		sndLevel.addEventListener('ended', function() {
 					this.currentTime = 0;
 					this.play();
 		}, false);
 
-			if(Phase1) {
-
-				if(!b1EndP1 && !b2EndP1){
-
-					if(levelmusic === 1){
-						sndLevel.play();
-						levelmusic = 0;
-					}
-					travelSkullTL();
-					travelSkullTR();
-					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
-						initb1();
-						initb2();
-						b1EndP1 = true;
-						b2EndP1 = true;
-						b3EndP1 = false;
-					}
-				}
-
-				if(!b3EndP1){
-					travelLaserLeft(b3);
-					if(b3.x > 530){
-						initb3();
-						b3EndP1 = true;
-						b12EndP1 = false;
-					}
-				}
-
-				if(!b12EndP1){
-					travelLaserTop(b12);
-					if(b12.y > 270){
-						initb12();
-						b12EndP1 = true;
-						b11EndP1 = false;
-					}
-				}
-
-				if(!b11EndP1){
-					travelLaserTop(b11);
-					if(b11.y > 270){
-						initb11();
-						b11EndP1 = true;
-						b4EndP1 = false;
-					}
-				}
-
-				if(!b4EndP1){
-					travelLaserBottom(b4);
-					if(b4.y < -30){
-						initb4();
-						b4EndP1 = true;
-						b20EndP1 = false;
-					}
-				}
-
-				if(!b20EndP1){
-					travelCurlSkullBR();
-					if(b20.y < 0 || b20.x < 0){
-						initb20();
-						b20EndP1 = true;
-						b15EndP1 = false;
-						b18EndP1 = false;
-					}
-				}
-
-				if(!b15EndP1 && !b18EndP1){
-					travelArrowTop(b15);
-					travelArrowTop(b18);
-					if(b15.y > 270 || b18.y > 270){
-						initb15();
-						initb18();
-						b15EndP1 = true;
-						b18EndP1 = true;
-						b17EndP1 = false;
-						b16EndP1 = false;
-					}
-				}
-
-				if(!b16EndP1 && !b17EndP1){
-					travelArrowTop(b16);
-					travelArrowTop(b17);
-					if(b16.y > 270 || b17.y > 270){
-						initb16();
-						initb17();
-						b16EndP1 = true;
-						b17EndP1 = true;
-						b5EndP1 = false;
-						b6EndP1 = false;
-						b7EndP1 = false;
-					}
-				}
-
-				if(!b5EndP1 && !b6EndP1 && !b7EndP1){
-					travelArrowBottom(b5);
-					travelArrowBottom(b6);
-					travelArrowBottom(b7);
-					if(b5.y < 0 || b6.y < 0 || b7.y < 0){
-						initb5();
-						initb6();
-						initb7();
-						b5EndP1 = true;
-						b6EndP1 = true;
-						b7EndP1 = true;
-						b10EndP1 = false;
-					}
-				}
-
-				if(!b10EndP1){
-					travelLaserLeft(b10);
-					if(b10.x > 512){
-						initb10();
-						b10EndP1 = true;
-						b9EndP1 = false;
-					}
-				}
-
-				if(!b9EndP1){
-					travelLaserLeft(b9);
-					if(b9.x > 512){
-						initb9();
-						b9EndP1 = true;
-						b19EndP1 = false;
-					}
-				}
-
-				if(!b19EndP1){
-					travelCurlSkullLeft();
-					if(b19.x > 512){
-						initb19();
-						b19EndP1 = true;
-						b8EndP1 = false;
-						b13EndP1 = false;
-						b14EndP1 = false;
-					}
-				}
-
-				if(!b8EndP1 && !b13EndP1 && !b14EndP1){
-					travelSkullBottomLeft();
-					travelArrowLeft(b13);
-					travelArrowLeft(b14);
-					if(( b8.x > 512 || b8.y < 0 ) || b13.x > 512 || b14.x > 512){
-						initb8();
-						initb13();
-						initb14();
-						b8EndP1 = true;
-						b13EndP1 = true;
-						b14EndP1 = true;
-						if(counterP1 === 2) {
-						b6EndP2 = false;
-						b13EndP2 = false;
-						b14EndP2 = false;
-						Phase1 = false;
-						Phase2 = true;
-						}
-						else{
-							b1EndP1 = false;
-							b2EndP1 = false;
-							counterP1++;
-						}
-					}
-				}
-			}
-
-			if(Phase2) {
-
-				if(!b6EndP2 && !b13EndP2 && !b14EndP2){
-					travelArrowBottom(b6);
-					travelArrowLeft(b13);
-					travelArrowLeft(b14);
-					if(b13.x > 512 || b14.x > 512){
-						initb6();
-						initb13();
-						initb14();
-						b6EndP2 = true;
-						b13EndP2 = true;
-						b14EndP2 = true;
-						b4EndP2 = false;
-						b5EndP2 = false;
-						b7EndP2 = false;
-					}
-				}
-
-				if(!b4EndP2 && !b5EndP2 && !b7EndP2){
-					travelLaserBottom(b4);
-					travelArrowBottom(b5);
-					travelArrowBottom(b7);
-					if(b5.y < 0 || b7.y < 0){
-						initb4();
-						initb5();
-						initb7();
-						b4EndP2 = true;
-						b5EndP2 = true;
-						b7EndP2 = true;
-						b1EndP2 = false;
-						b3EndP2 = false;
-						b8EndP2 = false;
-					}
-				}
-
-				if(!b1EndP2 && !b3EndP2 && !b8EndP2){
-					travelSkullTL();
-					travelSkullBottomLeft();
-					travelLaserLeft(b3);
-					if((b1.x > 512 || b1.y > 256) && b3.x > 530 && ( b8.x > 512 || b8.y < 0 )){
-						initb1();
-						initb3();
-						initb8();
-						b8.y = 256;
-						b1EndP2 = true;
-						b3EndP2 = true;
-						b8EndP2 = true;
-						b11EndP2 = false;
-						b12EndP2 = false;
-						b20EndP2 = false;
-					}
-				}
-
-				if(!b11EndP2 && !b12EndP2 && !b20EndP2){
-					travelLaserTop(b11);
-					travelLaserTop(b12);
-					travelCurlSkullBR();
-					if(b11.y > 270 && b12.y > 270 && ( b20.y < 0 || b20.x < 0 )){
-						initb11();
-						initb12();
-						initb20();
-						b11EndP2 = true;
-						b12EndP2 = true;
-						b20EndP2 = true;
-						b15EndP2 = false;
-						b16EndP2 = false;
-						b17EndP2 = false;
-						b18EndP2 = false;
-						b19EndP2 = false;
-					}
-				}
-
-				if(!b15EndP2 && !b16EndP2 && !b17EndP2 && !b18EndP2 && !b19EndP2){
-					travelArrowTop(b15);
-					travelArrowTop(b16);
-					travelArrowTop(b17);
-					travelArrowTop(b18);
-					travelCurlSkullLeft();
-					if(b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
-						initb15();
-						initb16();
-						initb17();
-						initb18();
-						initb19();
-						b15EndP2 = true;
-						b16EndP2 = true;
-						b17EndP2 = true;
-						b18EndP2 = true;
-						b19EndP2 = true;
-						if(counterP2 === 2){
-							b1EndP3 = false;
-							b2EndP3 = false;
-							b3EndP3 = false;
-							b4EndP3 = false;
-							b8EndP3 = false;
-							b20EndP3 = false;
-							Phase2 = false;
-							Phase3 = true;
-						}
-						else{
-							b6EndP2 = false;
-							b13EndP2 = false;
-							b14EndP2 = false;
-							counterP2 ++;
-						}
-					}
-				}
-			}
-
-			if (Phase3) {
-
-				if(!b1EndP3 && !b2EndP3 && !b3EndP3 && !b4EndP3 && !b8EndP3 && !b20EndP3){
-					travelSkullTL();
-					travelSkullTR();
-					travelLaserLeft(b3);
-					travelLaserBottom(b4);
-					travelSkullBottomLeft();
-					travelCurlSkullBR();
-					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && b3.x > 530 && b4.y < -30 && ( b8.x > 512 || b8.y < 0 ) && (b20.y < 0 && b20.x < 0)){
-						initb1();
-						initb2();
-						initb3();
-						initb4();
-						initb8();
-						initb20();
-						b1EndP3 = true;
-						b2EndP3 = true;
-						b3EndP3 = true;
-						b4EndP3 = true;
-						b8EndP3 = true;
-						b20EndP3 = true;
-						b9EndP3 = false;
-						b10EndP3 = false;
-						b11EndP3 = false;
-						b12EndP3 = false;
-					}
-				}
-
-				if(!b9EndP3 && !b10EndP3 && !b11EndP3 && !b12EndP3){
-					travelLaserLeft(b9);
-					travelLaserLeft(b10);
-					travelLaserTop(b11);
-					travelLaserTop(b12);
-					if(b9.x > 512 && b10.x > 512 && b11.y > 270 && b12.y > 270){
-						initb9();
-						initb10();
-						initb11();
-						initb12();
-						b9EndP3 = true;
-						b10EndP3 = true;
-						b11EndP3 = true;
-						b12EndP3 = true;
-						b5EndP3 = false;
-						b6EndP3 = false;
-						b7EndP3 = false;
-						b15EndP3 = false;
-						b16EndP3 = false;
-						b17EndP3 = false;
-						b18EndP3 = false;
-						b19EndP3 = false;
-					}
-				}
-
-				if(!b5EndP3 && !b6EndP3 && !b7EndP3 && !b15EndP3 && !b16EndP3 && !b17EndP3 && !b18EndP3 && !b19EndP3){
-					travelArrowBottom(b5);
-					travelArrowBottom(b6);
-					travelArrowBottom(b7);
-					travelArrowTop(b15);
-					travelArrowTop(b16);
-					travelArrowTop(b17);
-					travelArrowTop(b18);
-					travelCurlSkullLeft();
-					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270 && b19.x > 512){
-						initb5();
-						initb6();
-						initb7();
-						initb15();
-						initb16();
-						initb17();
-						initb18();
-						initb19();
-						b5EndP3 = true;
-						b6EndP3 = true;
-						b7EndP3 = true;
-						b15EndP3 = true;
-						b16EndP3 = true;
-						b17EndP3 = true;
-						b18EndP3 = true;
-						b19EndP3 = true;
-						if(counterP3 === 3){
-							b5EndP4 = false;
-							b6EndP4 = false;
-							b7EndP4 = false;
-							b9EndP4 = false;
-							b10EndP4 = false;
-							b13EndP4 = false;
-							b15EndP4 = false;
-							b16EndP4 = false;
-							b17EndP4 = false;
-							b18EndP4 = false;
-							Phase3 = false;
-							Phase4 = true;
-						}
-						else{
-							b1EndP3 = false;
-							b2EndP3 = false;
-							b3EndP3 = false;
-							b4EndP3 = false;
-							b8EndP3 = false;
-							b20EndP3 = false;
-							counterP3 ++;
-						}
-					}
-				}
-			}
-
-			if(Phase4){
-
-				if(!b5EndP4 && !b6EndP4 && !b7EndP4 && !b9EndP4 && !b10EndP4 && !b13EndP4 && !b15EndP4 && !b16EndP4 && !b17EndP4 && !b18EndP4){
-					travelArrowBottom(b5);
-					travelArrowBottom(b6);
-					travelArrowBottom(b7);
-					travelLaserLeft(b9);
-					travelLaserLeft(b10);
-					travelArrowLeft(b13);
-					travelArrowTop(b15);
-					travelArrowTop(b16);
-					travelArrowTop(b17);
-					travelArrowTop(b18);
-					if(b5.y < 0 && b6.y < 0 && b7.y < 0 && b9.x > 512 && b10.x > 512 && b13.x > 512 && b15.y > 270 && b16.y > 270 && b17.y > 270 && b18.y > 270){
-						initb5();
-						initb6();
-						initb7();
-						initb9();
-						initb10();
-						initb13();
-						initb15();
-						initb16();
-						initb17();
-						initb18();
-						b5EndP4 = true;
-						b6EndP4 = true;
-						b7EndP4 = true;
-						b9EndP4 = true;
-						b10EndP4 = true;
-						b13EndP4 = true;
-						b15EndP4 = true;
-						b16EndP4 = true;
-						b17EndP4 = true;
-						b18EndP4 = true;
-						b1EndP4 = false;
-						b2EndP4 = false;
-						b8EndP4 = false;
-						b11EndP4 = false;
-						b12EndP4 = false;
-						b20EndP4 = false;
-					}
-				}
-
-				if(!b1EndP4 && !b2EndP4 && !b8EndP4 && !b11EndP4 && !b12EndP4 && !b20EndP4){
-					travelSkullTL();
-					travelSkullTR();
-					travelSkullBottomLeft();
-					travelLaserTop(b11);
-					travelLaserTop(b12);
-					travelCurlSkullBR();
-					if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256) && ( b8.x > 512 || b8.y < 0 ) && b11.y > 270 && b12.y > 270 && (b20.y < 0 || b20.x < 0)){
-						initb1();
-						initb2();
-						initb8();
-						initb11();
-						initb12();
-						initb20();
-						b1EndP4 = true;
-						b2EndP4 = true;
-						b8EndP4 = true;
-						b11EndP4 = true;
-						b12EndP4 = true;
-						b20EndP4 = true;
-						b3EndP4 = false;
-						b4EndP4 = false;
-						b19EndP4 = false;
-					}
-				}
-
-				if(!b3EndP4 && !b4EndP4 && !b19EndP4){
-					travelLaserLeft(b3);
-					travelLaserBottom(b4);
-					travelCurlSkullLeft();
-					if(b3.x > 530 && b4.y < -30 && b19.x > 512){
-						initb3();
-						initb4();
-						initb19();
-						if(counterMegaLoop === 2){
-							b3EndP4 = true;
-							b4EndP4 = true;
-							b19EndP4 = true;
-							Phase4 = false;
-						}
-						if(counterMegaLoop === 1){
-							b3EndP4 = true;
-							b4EndP4 = true;
-							b19EndP4 = true;
-							Phase4 = false;
-							counterP1 = 1;
-							counterP2 = 1;
-							counterP3 = 1;
-							b1EndP1 = false;
-							b2EndP1 = false;
-							Phase1 = true;
-							counterMegaLoop ++;
-						}
-					}
-				}
-			}
-
+		curl();
+    	lifeCounterEffect();
+		invulSystem();
+		gamePattern();
 		packOfCollisionEffect();
 	    render();
 
-  }
+	}
 
 		function souris(e){
 					if (e.x != undefined && e.y != undefined){
@@ -981,5 +1003,3 @@ window.onload = function() {
 		}
 
 }
-
-// Commentaire pour merge
