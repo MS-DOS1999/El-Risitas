@@ -195,6 +195,16 @@ window.onload = function() {
 		b20.x = 532;
 	}
 
+	function initp1(){
+		p1.x = (W - p1.w) / 2;
+		p1.y = (H - p1.h) / 2;
+	}
+
+	function initlB(){
+		lB.y = 10;
+		lB.x = 10;
+	}
+
 	function curl() {
 		curve += 0.5;
 		if(curve > 180) curve = 0;
@@ -334,104 +344,85 @@ window.onload = function() {
 		}
 	}
 
+	function spriteDimension(bloc, sprite) {
+		bloc.h = sprite.height;
+		bloc.w = sprite.width;
+	}
+
     function init() {
 
 			CANVAS.width = W;
 			CANVAS.height = H;
 
-			p1.h = joueur.height;
-			p1.w = joueur.width;
-			p1.x = (W - p1.w) / 2;
-			p1.y = (H - p1.h) / 2;
+			spriteDimension(p1, joueur);
+			initp1();
 
-			b1.h = bloc1.height;
-			b1.w = bloc1.width;
+			spriteDimension(lB, lifeBar);
+			initlB();
+
+			spriteDimension(b1, bloc1);
 			initb1();
 
-			b2.h = bloc2.height;
-			b2.w = bloc2.width;
+			spriteDimension(b2, bloc2);
 			initb2();
 
-			b3.h = bloc3.height;
-			b3.w = bloc3.width;
+			spriteDimension(b3, bloc3);
 			initb3();
 
-			b4.h = bloc4.height;
-			b4.w = bloc4.width;
+			spriteDimension(b4, bloc4);
 			initb4();
 
-			b5.h = bloc5.height;
-			b5.w = bloc5.width;
+			spriteDimension(b5, bloc5);
 			initb5();
 
-			b6.h = bloc6.height;
-			b6.w = bloc6.width;
+			spriteDimension(b6, bloc6);
 			initb6();
 
-			b7.h = bloc7.height;
-			b7.w = bloc7.width;
+			spriteDimension(b7, bloc7);
 			initb7();
 
-			b8.h = bloc8.height;
-			b8.w = bloc8.width;
+			spriteDimension(b8, bloc8);
 			initb8();
 
-			b9.h = bloc9.height;
-			b9.w = bloc9.width;
+			spriteDimension(b9, bloc9);
 			initb9();
 
-			b10.h = bloc10.height;
-			b10.w = bloc10.width;
+			spriteDimension(b10, bloc10);
 			initb10();
 
-			b11.h = bloc11.height;
-			b11.w = bloc11.width;
+			spriteDimension(b11, bloc11);
 			initb11();
 
-			b12.h = bloc12.height;
-			b12.w = bloc12.width;
+			spriteDimension(b12, bloc12);
 			initb12();
 
-			b13.h = bloc13.height;
-			b13.w = bloc13.width;
+			spriteDimension(b13, bloc13);
 			initb13();
 
-			b14.h = bloc14.height;
-			b14.w = bloc14.width;
+			spriteDimension(b14, bloc14);
 			initb14();
 
-			b15.h = bloc15.height;
-			b15.w = bloc15.width;
+			spriteDimension(b15, bloc15);
 			initb15();
 
-			b16.h = bloc16.height;
-			b16.w = bloc16.width;
+			spriteDimension(b16, bloc16);
 			initb16();
 
-			b17.h = bloc17.height;
-			b17.w = bloc17.width;
+			spriteDimension(b17, bloc17);
 			initb17();
 
-			b18.h = bloc18.height;
-			b18.w = bloc18.width;
+			spriteDimension(b18, bloc18);
 			initb18();
 
-			b19.h = bloc19.height;
-			b19.w = bloc19.width;
+			spriteDimension(b19, bloc19);
 			initb19();
 
-			b20.h = bloc20.height;
-			b20.w = bloc20.width;
+			spriteDimension(b20, bloc20);
 			initb20();
-
-			lB.h = lifeBar.height;
-			lB.w = lifeBar.width;
-			lB.y = 10;
-			lB.x = 10;
 
 			mouseY = p1.y;
 			mouseX = p1.x;
-      setInterval(main, 10);
+      		setInterval(main, 10);
 			canvas.addEventListener("mousemove", souris, false);
 			document.body.style.cursor = 'none';
 
