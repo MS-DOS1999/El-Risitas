@@ -35,6 +35,8 @@ var startAnimExplo = 0;
 var startEvent = 0;
 var clickStart = 0;
 
+var musicBoss = new Audio("sound/hopes_and_dreams.mp3");
+var boucleMusicBoss = 0;
 
 var Click_x = 0;
 var Click_y = 0;
@@ -77,7 +79,7 @@ bloc16 = new Image(), bloc17 = new Image(), bloc18 = new Image(),
 bloc19 = new Image(), bloc20 = new Image(), lifeBar = new Image(),
 boss = new Image(), missile = new Image(), heartboss = new Image(),
 lifeBarBoss = new Image(), leftHand = new Image(), rightHand = new Image(),
-explosion = new Image(), titlescreen = new Image(), start = new Image();
+explosion = new Image(), titlescreen = new Image(), start = new Image(), gameover = new Image();
 
 var lifeCounter = 3;
 var bosslifeCounter = 20;
@@ -114,6 +116,7 @@ leftHand.src = "";
 rightHand.src = "";
 titlescreen.src = "img/titlescreen.png";
 start.src = "img/start.png";
+gameover.src = "img/gameoverScreen.png";
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
@@ -125,7 +128,8 @@ window.onload = function() {
 
 	let b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
 	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {}, b18 = {}, b19 = {}, b20 = {},
-	lB = {}, bss = {},  msl = {}, lBB = {}, HB = {}, LHand = {}, RHand = {}, Exp = {}, titleS = {}, st = {};
+	lB = {}, bss = {},  msl = {}, lBB = {}, HB = {}, LHand = {}, RHand = {}, Exp = {}, titleS = {}, st = {},
+	GmOv = {};
 
 	const W = 512;
 	const H = 256;
@@ -250,6 +254,11 @@ window.onload = function() {
 			st.w = start.width;
 			st.x = W/2 - st.w/2;
 			st.y = H/2 + 30;
+			
+			GmOv.h = gameover.height;
+			GmOv.w = gameover.width;
+			GmOv.x = 0;
+			GmOv.y = 0;
 	    
 			bss.h = boss.height;
 			bss.w = boss.width;
@@ -403,6 +412,7 @@ window.onload = function() {
 
     }
     function main() {
+	    
 	if(clickStart === 1){
 		startEvent = 1;
 		clickStart = 0;
@@ -419,7 +429,9 @@ window.onload = function() {
 		}, false);
 	    }
 
-
+		if(lifeCounter >= 3){
+			lifeBar.src = "img/jauge_remplie.png";
+		}
 		if(lifeCounter === 2){
 			lifeBar.src = "img/jauge_demi1.png";
 		}
@@ -431,6 +443,8 @@ window.onload = function() {
 		}
 		if(lifeCounter <= 0){
 			joueur.src = "img/heartvide.png";
+			
+			
 		}
 
 		if(invulnerable ===1){
@@ -1081,7 +1095,7 @@ window.onload = function() {
 				if(bss.x === 226){
 					var snd = new Audio("sound/sf_diable_10.mp3"); // buffers automatically when created
 					snd.play();
-					setTimeout(function () {var snd = new Audio("sound/hopes_and_dreams.mp3"); snd.play();}, 4000)
+					setTimeout(function () {if(boucleMusicBoss === 0){musicBoss.play(); boucleMusicboss = 1;}}, 4000)
 				}
 			}
 			if(bss.x === 226){
@@ -1764,7 +1778,7 @@ window.onload = function() {
 			context.drawImage(titlescreen, titleS.x, titleS.y);
 			context.drawImage(start, st.x, st.y);
 			context.drawImage(joueur, mouseX, mouseY);
-		if(startEvent === 1){
+		if(startEvent === 1 && lifeCounter > 0){
 			context.drawImage(heartboss, HB.x, HB.y);
 			context.drawImage(lifeBar, lB.x, lB.y);
 			context.drawImage(lifeBarBoss, lBB.x, lBB.y);
@@ -1793,6 +1807,9 @@ window.onload = function() {
 			context.drawImage(bloc18, b18.x, b18.y);
 			context.drawImage(bloc19, b19.x, b19.y);
 			context.drawImage(bloc20, b20.x, b20.y);
+		}
+		if(lifeCounter <= 0){
+			context.drawImage(gameover, GmOv.x, GmOv.y);
 		}
 			
 		}
@@ -1824,7 +1841,245 @@ window.onload = function() {
 			
 			if(collisions(st, p1) && startEvent === 0){
 				clickStart = 1;
-			}				
+			}
+			
+			if(lifeCounter <= 0){
+							bss.h = boss.height;
+							bss.w = boss.width;
+							bss.x = 572;
+							bss.y = 28;
+							
+					    
+							LHand.w = leftHand.width;
+							LHand.h = leftHand.height;
+							LHand.x = -150;
+							LHand.y = -150;
+							
+							
+							RHand.w = rightHand.width;
+							RHand.h = rightHand.height;
+							RHand.x = -150;
+							RHand.y = -150;
+
+							lBB.h = lifeBarBoss.height;
+							lBB.w = lifeBarBoss.width;
+							lBB.x = 490;
+							lBB.y = 10;
+
+							msl.h = missile.height;
+							msl.w = missile.width;
+							msl.x = -20;
+							msl.y = -20;
+
+							HB.h = 0;
+							HB.w = 0;
+							HB.x = 246;
+							HB.y = 5;
+
+
+							p1.h = joueur.height;
+							p1.w = joueur.width;
+							p1.x = (W - p1.w) / 2;
+							p1.y = (H - p1.h) / 2;
+
+							b1.h = bloc1.height;
+							b1.w = bloc1.width;
+							b1.y = -20;
+							b1.x = -20 - bloc1.width;
+
+							b2.h = bloc2.height;
+							b2.w = bloc2.width;
+							b2.y = -20;
+							b2.x = 532;
+
+							b3.h = bloc3.height;
+							b3.w = bloc3.width;
+							b3.y = 256 / 3;
+							b3.x = -20 - bloc3.width;
+
+							b4.h = bloc4.height;
+							b4.w = bloc4.width;
+							b4.y = 276;
+							b4.x = 512 / 3;
+
+							b5.h = bloc5.height;
+							b5.w = bloc5.width;
+							b5.y = 276;
+							b5.x = 104;
+
+							b6.h = bloc6.height;
+							b6.w = bloc6.width;
+							b6.y = 276;
+							b6.x = 276;
+
+							b7.h = bloc7.height;
+							b7.w = bloc7.width;
+							b7.y = 276;
+							b7.x = 408;
+
+							b8.h = bloc8.height;
+							b8.w = bloc8.width;
+							b8.y = 276;
+							b8.x = -20 - bloc8.width;
+
+							b9.h = bloc9.height;
+							b9.w = bloc9.width;
+							b9.y = -20;
+							b9.x = -20 - bloc9.width;
+
+							b10.h = bloc10.height;
+							b10.w = bloc10.width;
+							b10.y = (256 / 3) * 2;
+							b10.x = -20 - bloc10.width;
+
+							b11.h = bloc11.height;
+							b11.w = bloc11.width;
+							b11.y = -20 - bloc11.height;
+							b11.x = (512 / 3) * 2;
+
+							b12.h = bloc12.height;
+							b12.w = bloc12.width;
+							b12.y = -20 - bloc12.height;
+							b12.x = 0;
+
+							b13.h = bloc13.height;
+							b13.w = bloc13.width;
+							b13.y = 256 / 3;
+							b13.x = -20 - bloc13.width;
+
+							b14.h = bloc14.height;
+							b14.w = bloc14.width;
+							b14.y = (256 / 3) * 2;
+							b14.x = -20 - bloc14.width;
+
+							b15.h = bloc15.height;
+							b15.w = bloc15.width;
+							b15.y = -20 - bloc15.height;
+							b15.x = 51;
+
+							b16.h = bloc16.height;
+							b16.w = bloc16.width;
+							b16.y = -20 - bloc16.height;
+							b16.x = 461;
+
+							b17.h = bloc17.height;
+							b17.w = bloc17.width;
+							b17.y = -20 - bloc17.height;
+							b17.x = 205;
+
+							b18.h = bloc18.height;
+							b18.w = bloc18.width;
+							b18.y = -20 - bloc18.height;
+							b18.x = 411;
+
+							b19.h = bloc19.height;
+							b19.w = bloc19.width;
+							b19.y = 200;
+							b19.x = -20 - bloc19.width;
+
+							b20.h = bloc20.height;
+							b20.w = bloc20.width;
+							b20.y = 276;
+							b20.x = 532;
+
+							lB.h = lifeBar.height;
+							lB.w = lifeBar.width;
+							lB.y = 10;
+							lB.x = 10;
+							
+				startBattle = 0;
+				invertHeartBoss = 0;
+				eventHeartBoss = 0;
+				animInvulnerable = 0;
+				TimerJaugeBoss = 0;
+				invulnerable = 0;
+				TimerHeart = 0;
+				TimerBoss = 0;
+				TimerBoss1 = 0;
+				EndAnimHeart = 0;
+				GoInvul = 0;
+				test = 0;
+				fire = 0;
+				animBossHeart = 0;
+				startAnimBossHeart = 0;
+				TimerBeam = 0;
+				bossP1Flag = 0;
+				TimerLaser = 0;
+				laserMove = 0;
+				testlaser1 = 0;
+				testLHand = 0;
+				invertedLHand = 0;
+				arrowtest = 0;
+				testRHand = 0;
+				invertedRHand = 0;
+				patternLeftHandGo = 0;
+				patternRightHandGo = 0;
+				bossAttackGo = 0;
+				attackRandom = 0;
+				attackDifficult = 0;
+				animExplo = 0;
+				startAnimExplo = 0;
+
+
+				Click_x = 0;
+				Click_y = 0;
+				curve = 0;
+				
+				lifeCounter = 3;
+				bosslifeCounter = 20;
+				
+				Phase1 = true, Phase2 = false, Phase3 = false, Phase4 = false;
+				counterP1 = 1, counterP2 = 1, counterP3 = 1, counterP4 = 1;
+				counterMegaLoop = 1;
+
+				b1EndP1 = false, b2EndP1 = false, b3EndP1 = true, b4EndP1 = true, b5EndP1 = true,
+				b6EndP1 = true, b7EndP1 = true, b8EndP1 = true, b9EndP1 = true, b10EndP1 = true,
+				b11EndP1 = true, b12EndP1 = true, b13EndP1 = true, b14EndP1 = true, b15EndP1 = true,
+				b16EndP1 = true, b17EndP1 = true, b18EndP1 = true, b19EndP1 = true, b20EndP1 = true;
+
+				b1EndP2 = true, b2EndP2 = true, b3EndP2 = true, b4EndP2 = true, b5EndP2 = true,
+				b6EndP2 = true, b7EndP2 = true, b8EndP2 = true, b9EndP2 = true, b10EndP2 = true,
+				b11EndP2 = true, b12EndP2 = true, b13EndP2 = true, b14EndP2 = true, b15EndP2 = true,
+				b16EndP2 = true, b17EndP2 = true, b18EndP2 = true, b19EndP2 = true, b20EndP2 = true;
+
+				b1EndP3 = true, b2EndP3 = true, b3EndP3 = true, b4EndP3 = true, b5EndP3 = true,
+				b6EndP3 = true, b7EndP3 = true, b8EndP3 = true, b9EndP3 = true, b10EndP3 = true,
+				b11EndP3 = true, b12EndP3 = true, b13EndP3 = true, b14EndP3 = true, b15EndP3 = true,
+				b16EndP3 = true, b17EndP3 = true, b18EndP3 = true, b19EndP3 = true, b20EndP3 = true;
+
+				b1EndP4 = true, b2EndP4 = true, b3EndP4 = true, b4EndP4 = true, b5EndP4 = true,
+				b6EndP4 = true, b7EndP4 = true, b8EndP4 = true, b9EndP4 = true, b10EndP4 = true,
+				b11EndP4 = true, b12EndP4 = true, b13EndP4 = true, b14EndP4 = true, b15EndP4 = true,
+				b16EndP4 = true, b17EndP4 = true, b18EndP4 = true, b19EndP4 = true, b20EndP4 = true;
+				
+				joueur.src = "img/heart.png";
+				background.src = "img/background.png";
+				lifeBar.src = "img/jauge_remplie.png";
+				bloc1.src = "img/skull.png";
+				bloc2.src = "img/skull.png";
+				bloc3.src = "img/rayonH.png";
+				bloc4.src ="img/rayon.png";
+				bloc5.src = "img/arrowup.png";
+				bloc6.src = "img/arrowup.png";
+				bloc7.src = "img/arrowup.png";
+				bloc8.src = "img/skull.png";
+				bloc9.src = "img/rayonH.png";
+				bloc10.src = "img/rayonH.png";
+				bloc11.src = "img/rayon.png";
+				bloc12.src = "img/rayon.png";
+				bloc13.src = "img/arrowright.png";
+				bloc14.src = "img/arrowright.png";
+				bloc15.src = "img/arrowdown.png";
+				bloc16.src = "img/arrowdown.png";
+				bloc17.src = "img/arrowdown.png";
+				bloc18.src = "img/arrowdown.png";
+				bloc19.src = "img/skull.png";
+				bloc20.src = "img/skull.png";
+				leftHand.src = "";
+				rightHand.src = "";
+				gameover.src = "img/gameoverScreen.png";
+				heartboss.src = "";
+			}
 
 			if(fire === 0){
 			fire = 1;
