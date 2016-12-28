@@ -34,8 +34,11 @@ var animExplo = 0;
 var startAnimExplo = 0;
 var startEvent = 0;
 var clickStart = 0;
+var launchEndingMessage = 0;
+var launchCredits = 0;
+var sndExplostart = 0;
 
-var musicBoss = new Audio("sound/hopes_and_dreams.mp3");
+
 var boucleMusicBoss = 0;
 
 var Click_x = 0;
@@ -79,11 +82,14 @@ bloc16 = new Image(), bloc17 = new Image(), bloc18 = new Image(),
 bloc19 = new Image(), bloc20 = new Image(), lifeBar = new Image(),
 boss = new Image(), missile = new Image(), heartboss = new Image(),
 lifeBarBoss = new Image(), leftHand = new Image(), rightHand = new Image(),
-explosion = new Image(), titlescreen = new Image(), start = new Image(), gameover = new Image();
+explosion = new Image(), titlescreen = new Image(), start = new Image(), gameover = new Image(),
+endingmessage = new Image(), credits = new Image();
 
 var lifeCounter = 3;
 var bosslifeCounter = 20;
 
+var musicEnding = new Audio("sound/Ending.mp3");
+var musicBoss = new Audio("sound/hopes_and_dreams.mp3");
 let sndLevel = new Audio("sound/Whirlwind.mp3");
 let levelmusic = 1;
 
@@ -117,6 +123,8 @@ rightHand.src = "";
 titlescreen.src = "img/titlescreen.png";
 start.src = "img/start.png";
 gameover.src = "img/gameoverScreen.png";
+endingmessage.src = "img/Ending-Message.png";
+credits.src = "img/Credits.png";
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
@@ -129,7 +137,7 @@ window.onload = function() {
 	let b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
 	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {}, b18 = {}, b19 = {}, b20 = {},
 	lB = {}, bss = {},  msl = {}, lBB = {}, HB = {}, LHand = {}, RHand = {}, Exp = {}, titleS = {}, st = {},
-	GmOv = {};
+	GmOv = {}, EndMess = {}, Crdts = {};
 
 	const W = 512;
 	const H = 256;
@@ -259,6 +267,16 @@ window.onload = function() {
 			GmOv.w = gameover.width;
 			GmOv.x = 0;
 			GmOv.y = 0;
+	    
+			EndMess.h = endingmessage.height;
+			EndMess.w = endingmessage.width;
+			EndMess.x = 0;
+			EndMess.y = 0;
+			
+			Crdts.h = credits.height;
+			Crdts.w = credits.width;
+			Crdts.x = 0;
+			Crdts.y = 256;
 	    
 			bss.h = boss.height;
 			bss.w = boss.width;
@@ -1211,6 +1229,11 @@ window.onload = function() {
 				Exp.y = 15;
 				
 			      if(startAnimExplo === 0){
+				if(sndExplostart === 0){
+					var sndExplo = new Audio("sound/TNT.mp3");
+					sndExplo.play();
+					sndExplostart = 1;
+				}
 				animExplo++;
 				switch(animExplo){
 					
@@ -1508,6 +1531,29 @@ window.onload = function() {
 				}
 
 			}
+			
+			if(startAnimExplo === 1){
+				
+				musicBoss.pause();
+				musicBoss.currentTime = 0;
+				
+				musicEnding.play();
+				
+				p1.w = 0;
+				p1.h = 0;
+				p1.x = 10000;
+				p1.y = 10000;
+				launchEndingMessage = 1;
+				if(launchEndingMessage === 1 && EndMess.y != -744){
+					EndMess.y -= 0.4;
+				}
+				if(launchEndingMessage === 1 && EndMess.y <= -742){
+					launchCredits = 1;
+				}
+				if(launchCredits === 1 && Crdts.y > -2244){
+					Crdts.y -= 0.4;
+				}
+			}
 
 		}
 
@@ -1778,7 +1824,7 @@ window.onload = function() {
 			context.drawImage(titlescreen, titleS.x, titleS.y);
 			context.drawImage(start, st.x, st.y);
 			context.drawImage(joueur, mouseX, mouseY);
-		if(startEvent === 1 && lifeCounter > 0){
+		if(startEvent === 1 && lifeCounter > 0 && launchEndingMessage != 1){
 			context.drawImage(heartboss, HB.x, HB.y);
 			context.drawImage(lifeBar, lB.x, lB.y);
 			context.drawImage(lifeBarBoss, lBB.x, lBB.y);
@@ -1811,6 +1857,13 @@ window.onload = function() {
 		if(lifeCounter <= 0){
 			context.drawImage(gameover, GmOv.x, GmOv.y);
 		}
+		if(launchEndingMessage === 1){
+			context.drawImage(endingmessage, EndMess.x, EndMess.y);
+		}
+		if(launchCredits === 1){
+			context.drawImage(credits, Crdts.x, Crdts.y);
+		}
+		
 			
 		}
 
