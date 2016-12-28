@@ -32,6 +32,8 @@ var attackRandom = 0;
 var attackDifficult = 0;
 var animExplo = 0;
 var startAnimExplo = 0;
+var startEvent = 0;
+var clickStart = 0;
 
 
 var Click_x = 0;
@@ -75,7 +77,7 @@ bloc16 = new Image(), bloc17 = new Image(), bloc18 = new Image(),
 bloc19 = new Image(), bloc20 = new Image(), lifeBar = new Image(),
 boss = new Image(), missile = new Image(), heartboss = new Image(),
 lifeBarBoss = new Image(), leftHand = new Image(), rightHand = new Image(),
-explosion = new Image();
+explosion = new Image(), titlescreen = new Image(), start = new Image();
 
 var lifeCounter = 3;
 var bosslifeCounter = 20;
@@ -110,6 +112,8 @@ bloc19.src = "img/skull.png";
 bloc20.src = "img/skull.png";
 leftHand.src = "";
 rightHand.src = "";
+titlescreen.src = "img/titlescreen.png";
+start.src = "img/start.png";
 
 window.onload = function() {
 	//recupérer zone dessin canvas dans le html
@@ -121,7 +125,7 @@ window.onload = function() {
 
 	let b1 = {}, b2 = {}, b3 = {}, b4 = {}, b5 = {}, b6 = {}, b7 = {}, b8 = {}, b9 = {}, b10 = {},
 	b11 = {}, b12 = {}, b13 = {}, b14 = {}, b15 = {}, b16 = {}, b17 = {}, b18 = {}, b19 = {}, b20 = {},
-	lB = {}, bss = {},  msl = {}, lBB = {}, HB = {}, LHand = {}, RHand = {}, Exp = {};
+	lB = {}, bss = {},  msl = {}, lBB = {}, HB = {}, LHand = {}, RHand = {}, Exp = {}, titleS = {}, st = {};
 
 	const W = 512;
 	const H = 256;
@@ -236,8 +240,17 @@ window.onload = function() {
 
 			canvas.width = W;
 			canvas.height = H;
-	    
 			
+			titleS.h = titlescreen.height;
+			titleS.w = titlescreen.width;
+			titleS.x = 0;
+			titleS.y = 0;
+	    
+			st.h = start.height;
+			st.w = start.width;
+			st.x = W/2 - st.w/2;
+			st.y = H/2 + 30;
+	    
 			bss.h = boss.height;
 			bss.w = boss.width;
 			bss.x = 572;
@@ -249,7 +262,7 @@ window.onload = function() {
 			LHand.x = -150;
 			LHand.y = -150;
 			
-	    
+			
 			RHand.w = rightHand.width;
 			RHand.h = rightHand.height;
 			RHand.x = -150;
@@ -390,6 +403,14 @@ window.onload = function() {
 
     }
     function main() {
+	if(clickStart === 1){
+		startEvent = 1;
+		clickStart = 0;
+		titlescreen.src = "";
+		start.src = "";
+	}
+	    
+	if(startEvent === 1){
 		
 	    if(EndLevel === 0){
 		sndLevel.addEventListener('ended', function() {
@@ -1578,7 +1599,7 @@ window.onload = function() {
 			}
 			msl.y = -11;
 		}
-
+	}
 		if(collisions(bss, p1) && invulnerable === 0){
 			lifeCounter --;
 			invulnerability();
@@ -1718,8 +1739,9 @@ window.onload = function() {
 				b20.h = 0;
 				invulnerability();
 		}
+	
 	    render();
-
+	
   }
 
 		function souris(e){
@@ -1739,7 +1761,10 @@ window.onload = function() {
 
 		function render() {
 			context.drawImage(background, 0, 0);
+			context.drawImage(titlescreen, titleS.x, titleS.y);
+			context.drawImage(start, st.x, st.y);
 			context.drawImage(joueur, mouseX, mouseY);
+		if(startEvent === 1){
 			context.drawImage(heartboss, HB.x, HB.y);
 			context.drawImage(lifeBar, lB.x, lB.y);
 			context.drawImage(lifeBarBoss, lBB.x, lBB.y);
@@ -1769,6 +1794,8 @@ window.onload = function() {
 			context.drawImage(bloc19, b19.x, b19.y);
 			context.drawImage(bloc20, b20.x, b20.y);
 		}
+			
+		}
 
 		function collisions(A,B) {
 			if (A.y+A.h < B.y || A.y > B.y+B.h || A.x > B.x+B.w || A.x+A.w < B.x)
@@ -1794,6 +1821,10 @@ window.onload = function() {
 
 		Click_x -= canvas.offsetLeft;
 		Click_y -= canvas.offsetTop;
+			
+			if(collisions(st, p1) && startEvent === 0){
+				clickStart = 1;
+			}				
 
 			if(fire === 0){
 			fire = 1;
