@@ -8,17 +8,28 @@
 //																						  //
 //========================================================================================//
 
-
-// .___          ,            .            ,  ,          
-// [__  _ ._  _.-+-* _ ._    _| _   ._  _.-+--+- _ ._.._ 
-// |   (_)[ )(_. | |(_)[ )  (_](/,  [_)(_] |  | (/,[  [ )
-// ---------------------------------|--------------------
+//-----------------------------------------------//
+//           .__        ,       ._.              //
+//           [__) _.._.-+-* _    |            	 //
+//           |   (_][   | |(/,  _|_           	 //
+//                                       		 //
+//   .__     ,  ,              .              	 //
+//   [__) _.-+--+- _ ._.._    _|. .    * _ . .	 //
+//   |   (_] |  | (/,[  [ )  (_](_|    |(/,(_|	 //
+//                                   ._|      	 //
+//               ._.     ,     .              	 //
+//                | ._ *-+-* _.|              	 //
+//               _|_[ )| | |(_]|              	 //
+//												 //
+//-----------------------------------------------//                                        			
 
 // Ensemble de fonction définissant les différents pattern utilisés
 // au cours du jeu d'esquive
 
-// Phase 1
-// -------
+// .__ .              ,  
+// [__)|_  _. __ _   /|  
+// |   [ )(_]_) (/,  .|. 
+// ---------------------                      
 
 function patternP1() {
 
@@ -184,8 +195,10 @@ function patternP1() {
 	}
 }
 
-// Phase 2
-// -------
+// .__ .              _, 
+// [__)|_  _. __ _   '_) 
+// |   [ )(_]_) (/,  /_. 
+// ---------------------                      
 
 function patternP2(){
 
@@ -298,8 +311,10 @@ function patternP2(){
 	}
 }
 
-// Phase 3
-// -------
+// .__ .              _, 
+// [__)|_  _. __ _   '_) 
+// |   [ )(_]_) (/,  ._) 
+// ---------------------                     
 
 function patternP3(){
 
@@ -409,8 +424,10 @@ function patternP3(){
 	}
 }
 
-// Phase 4
-// -------
+// .__ .             . , 
+// [__)|_  _. __ _   |_| 
+// |   [ )(_]_) (/,    | 
+// ---------------------                      
 
 function patternP4(){
 
@@ -494,6 +511,7 @@ function patternP4(){
 				b4EndAnim = true;
 				b19EndAnim = true;
 				Phase4 = false;
+				EndLevel = true;
 			}
 			else{
 				b3EndAnim = true;
@@ -509,12 +527,276 @@ function patternP4(){
 	}
 }
 
+//-----------------------------------------------//
+//           .__        ,       ._.._.           //
+//           [__) _.._.-+-* _    |  |            //
+//           |   (_][   | |(/,  _|__|_           //
+//                                               //
+//   .__     ,  ,              .                 //
+//   [__) _.-+--+- _ ._.._    _|. .    * _ . .   //
+//   |   (_] |  | (/,[  [ )  (_](_|    |(/,(_|   //
+//                                   ._|         //
+//         .__             __. ,                 //
+//         [__) _  __ __  (__ -+- _. _  _        //
+//         [__)(_)_) _)   .__) | (_](_](/,       //
+//                                  ._|          //
+//												 //
+//-----------------------------------------------//
+
+// Gestion de l'aléatoire permettant le lancement des différentes
+// phase d'attaque du boss
+
+function attackChoice(){
+	if(!bossAttackGo){
+		attackRandom = Math.random()*(100-0)+0;
+		bossAttackGo = true;
+	}
+}
+
+// .__     ,  ,                    
+// [__) _.-+--+- _ ._.._           
+// |   (_] |  | (/,[  [ )          
+// ----------------------                               
+// .  .         .__          .     
+// |\/| _.*._   [ __ _.. . _.|_  _ 
+// |  |(_]|[ )  [_./(_](_|(_.[ )(/,
+// --------------------------------
+
+// Animation de la main gauche
+// ---------------------------
+
+function startLHandAnim(){
+	if(!testLHand){
+		leftHand.src = "img/hand-left.png";
+		spriteDimension(LHand, leftHand);
+		LHand.x = 215 - leftHand.width;
+		LHand.y = 50;
+		testLHand = true;
+	}
+}
+
+function firstPhaseLHandAnim(){
+	if(LHand.x > 30 && invertedLHand === 0){
+		LHand.x -= 4;
+		if(LHand.x === 31){
+			invertedLHand = 1;
+			patternLeftHandGo = true;
+		}
+	}
+}
+
+function secondPhaseLHandAnim(){
+	if(LHand.x < 195 && invertedLHand === 1){
+		LHand.x += 4;
+		if(LHand.x === 195){
+			leftHand.src = "";
+			invertedLHand = 2;
+		}
+	}
+}
+
+// Encapsulage
+
+function LHandAnim(){
+	startLHandAnim();
+	firstPhaseLHandAnim();
+	secondPhaseLHandAnim();
+}
+
+// Pattern d'attaque de la main gauche
+// -----------------------------------
+
+function LHandAttackPattern(){
+						
+	if(patternLeftHandGo){
+
+			if(!testlaser1){
+				b3EndAnim = false;
+				b4EndAnim = false;
+			}
+
+
+		  if(!b3EndAnim && !b4EndAnim){
+		    travelLaserH();
+		    travelLaserV();
+		    if(b3.x > 530 && b4.y < -30){
+			    initb3();
+			   	initb4();
+			    b3EndAnim = true;
+			    b4EndAnim = true;
+			    b1EndAnim = false;
+			    b2EndAnim = false;
+				testlaser1 = true;
+		    }
+		  }
+
+		  if(!b1EndAnim && !b2EndAnim && testlaser1){
+		    travelBossSkullL();
+		    travelBossSkullR();
+		    if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
+		      initb1();
+		      initb2();
+		      b1EndAnim = true;
+		      b2EndAnim = true;
+		      b15EndAnim = false;
+		      b16EndAnim = false;
+		      b17EndAnim = false;
+		      b18EndAnim = false;
+		    }
+		  }
+
+		  if(!b15EndAnim && !b18EndAnim && !b16EndAnim && !b17EndAnim){
+		    travelBossArrow(b15);
+		    travelBossArrow(b16);
+		    travelBossArrow(b17);
+		    travelBossArrow(b18);
+		    if((b15.y > 270 || b18.y > 270) && (b16.y > 270 || b17.y > 270)){
+		    	initb15();
+		    	initb16();
+		    	initb17();
+		    	initb18();
+		    	b15EndAnim = true;
+		    	b16EndAnim = true;
+		    	b17EndAnim = true;
+		    	b18EndAnim = true;
+		    	leftHandPattern = false;
+				testlaser1 = false;
+				testLHand = false;
+				invertedLHand = 0;
+				arrowtest = false;
+				testRHand = false;
+				invertedRHand = 0;
+				patternLeftHandGo = false;
+				patternRightHandGo = false;
+				bossAttackGo = false;
+				attackRandom = 0;
+		    }
+		}
+	}
+}
+
+// .__     ,  ,                  
+// [__) _.-+--+- _ ._.._         
+// |   (_] |  | (/,[  [ )        
+// ----------------------                              
+// .  .         .__         ,    
+// |\/| _.*._   |  \._. _ *-+- _ 
+// |  |(_]|[ )  |__/[  (_)| | (/,
+// ------------------------------
+
+// Animation de la main droite
+// ---------------------------
+
+function startRHandAnim(){
+	if(!testRHand){
+		rightHand.src = "img/hand-right.png";
+		spriteDimension(RHand, rightHand);
+		RHand.x = 255;
+		RHand.y = 50;
+		testRHand = true;
+	}
+}
+
+function firstPhaseRHandAnim(){
+	if(RHand.x < 405 && invertedRHand === 0){
+		RHand.x += 4;
+		if(RHand.x === 407){
+			invertedRHand = 1;
+			patternRightHandGo = true;
+			
+		}
+	}
+}
+
+function secondPhaseRHandAnim(){
+	if(RHand.x > 255 && invertedRHand === 1){
+		RHand.x -= 4;
+		if(RHand.x === 255){
+			rightHand.src = "";
+			invertedRHand = 2;
+		}
+	}
+}
+
+// Encapsulage
+
+function RHandAnim(){
+	startRHandAnim();
+	firstPhaseRHandAnim();
+	secondPhaseRHandAnim();
+}
+
+// Pattern d'attaque de la main droite
+// -----------------------------------
+
+function RHandAttackPattern(){					
+	if(patternRightHandGo === true){
+			if(!arrowtest){
+				b15EndAnim = false;
+				b18EndAnim = false;
+				b16EndAnim = false;
+				b17EndAnim = false;
+			}
+		  if(!b15EndAnim && !b18EndAnim && !b16EndAnim && !b17EndAnim){
+		    travelBossArrow(b15);
+		    travelBossArrow(b16);
+		    travelBossArrow(b17);
+		    travelBossArrow(b18);
+		    if((b15.y > 270 || b18.y > 270) && (b16.y > 270 || b17.y > 270)){
+		      initb15();
+		      initb16();
+		      initb17();
+		      initb18();
+		      b15EndAnim = true;
+		      b16EndAnim = true;
+		      b17EndAnim = true;
+		      b18EndAnim = true;
+		      b1EndAnim = false;
+		      b2EndAnim = false;
+		      arrowtest = true;
+		    }
+		  }
+		  if(!b1EndAnim && !b2EndAnim && arrowtest){
+		    travelBossSkullL();
+		    travelBossSkullR();
+		    if((b1.x > 512 || b1.y > 256) && (b2.x < -bloc2.width || b2.y > 256)){
+		      initb1();
+		      initb2();
+		      b1EndAnim = true;
+		      b2EndAnim = true;
+		      b3EndAnim = false;
+		      b4EndAnim = false;
+		    }
+		  }
+		  if(!b3EndAnim && !b4EndAnim){
+		    travelLaserH();
+		    travelLaserV();
+		    if(b3.x > 530 && b4.y < -30){
+			    initb3();
+			   	initb4();
+			    b3EndAnim = true;
+			    b4EndAnim = true;
+			    rightHandPattern = false;
+				testlaser1 = false;
+				testLHand = false;
+				arrowtest = false;
+				testRHand = false;
+				patternLeftHandGo = false;
+				patternRightHandGo = false;
+				bossAttackGo = false;
+				invertedLHand = 0;
+				invertedRHand = 0;
+				attackRandom = 0;
+		    }
+		}
+	}
+}
+
 // Fonction rassemblant les patterns précédemment créés pour les inclures et
-// leur permettrent de s'effectuer en chaîne
+// leur permettrent de s'effectuer dans le bon ordre
 
 function gamePattern(){
-
-	if(Phase1) {
+	if(Phase1 && !EndLevel) {
 		patternP1();
 	}
 	if(Phase2) {
@@ -526,5 +808,7 @@ function gamePattern(){
 	if (Phase4) {
 		patternP4();
 	}
-
+	if(EndLevel){
+		bossBattle();
+	}
 }

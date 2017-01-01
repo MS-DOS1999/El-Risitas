@@ -20,5 +20,5 @@ window.onload = function() {
 
 }
 
-// By Julien, Jonathan et Djamil //
+// By Julien, Jonathan et Jamil //
 // ----------------------------- //

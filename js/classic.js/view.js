@@ -18,11 +18,31 @@
 
 function render() {
 	CONTEXT.drawImage(background, 0, 0);
+	CONTEXT.drawImage(titlescreen, titleS.x, titleS.y);
+	CONTEXT.drawImage(start, st.x, st.y);
 	CONTEXT.drawImage(joueur, mouseX, mouseY);
-	CONTEXT.drawImage(lifeBar, lB.x, lB.y);
-	for(let i = 1; i < 21; i++){
-		let fnName = "CONTEXT.drawImage(bloc" + i + ", b" + i + ".x, b" + i + ".y);";
-		eval(fnName);
+	if(startEvent && lifeCounter > 0 && !launchEndingMessage){
+		CONTEXT.drawImage(lifeBar, lB.x, lB.y);
+		CONTEXT.drawImage(heartboss, HB.x, HB.y);
+		CONTEXT.drawImage(lifeBarBoss, lBB.x, lBB.y);
+		CONTEXT.drawImage(boss, bss.x, bss.y);
+		CONTEXT.drawImage(missile, msl.x, msl.y);
+		CONTEXT.drawImage(leftHand, LHand.x, LHand.y);
+		CONTEXT.drawImage(rightHand, RHand.x, RHand.y);
+		CONTEXT.drawImage(explosion, Exp.x, Exp.y);
+		for(let i = 1; i < 21; i++){
+			let fnName = "CONTEXT.drawImage(bloc" + i + ", b" + i + ".x, b" + i + ".y);";
+			eval(fnName);
+		}
+	}
+	if(lifeCounter <= 0){
+		CONTEXT.drawImage(gameover, GmOv.x, GmOv.y);
+	}
+	if(launchEndingMessage){
+		CONTEXT.drawImage(endingmessage, EndMess.x, EndMess.y);
+	}
+	if(launchCredits){
+		CONTEXT.drawImage(credits, Crdts.x, Crdts.y);
 	}
 }
 
@@ -40,19 +60,16 @@ function init() {
 	setInterval(main, 10);
 }
 
-// .___          ,            . *                ,        
+// .___          ,            . *       /        ,        
 // [__  _ ._  _.-+-* _ ._    _| ' _ \./ _  _.. .-+-* _ ._ 
 // |   (_)[ )(_. | |(_)[ )  (_]  (/,/'\(/,(_.(_| | |(_)[ )
 // -------------------------------------------------------
 
-// Lance toutes les fonctions permettant au jeu d'exister
+// Exécute toutes les fonctions permettant au jeu de s'animer
 
 function main() {
-	soundEffect();
-	curl();
-	lifeCounterEffect();
-	invulSystem();
-	gamePattern();
-	packOfCollisionEffect();
+	gameLauncher();
+	Game();
+	collisionManager();
     render();
 }
