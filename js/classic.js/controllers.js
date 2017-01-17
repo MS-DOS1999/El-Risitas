@@ -408,8 +408,8 @@ function travelBossArrow(bloc) {
 
 function souris(e){
 	if (e.x != undefined && e.y != undefined){
-		mouseX = e.x - 15;
-		mouseY = e.y - 15;
+		mouseX = ((e.x-=canvas.offsetLeft) - 6);
+		mouseY = ((e.y-=canvas.offsetTop) - 7);
 	} else {
 	// Firefox patch
 	mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft - 15;
